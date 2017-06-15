@@ -1,0 +1,35 @@
+.skill-display {
+	font-size: 18px;
+	font-family: Source Code Pro, monospace;
+	color: #003;
+	width: 90%;
+	display: block;
+	margin: auto;
+}
+
+.skill-mem {
+	background-color: #EEEEEE;
+	margin: 15px;
+	display: inline-block;
+	vertical-align: middle;
+	width: 30%;
+	text-align: left;
+	font-size: 14px;
+}
+.skill-mem h3 {
+	color: #115;
+	font-family: Open Sans, sans-serif;
+	text-align: center;
+	font-size: 16px;
+}
+
+.skill-display div {
+	display: inline-block;
+	height: 15px;
+}
+
+.skill-sub {
+	font-family: Source Code Pro, monospace;
+	font-size: 12px;
+	color: #333;
+}
