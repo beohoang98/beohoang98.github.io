@@ -1,0 +1,30 @@
+Fernando Torres
+Atletico Madrid
+32
+9
+Spain
+Messi
+Barcelona
+30
+10
+Argentina
+Ronaldo
+Real Madrid
+32
+7
+Portugal
+Coutinho
+Liverpool
+25
+10
+Brazil
+Ronaldinho
+AC Milan
+35
+10
+Brazil
+Gerrard
+Liverpool
+38
+8
+England
