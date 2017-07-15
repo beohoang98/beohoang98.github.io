@@ -12,21 +12,20 @@ $(document).ready(function(){
 		$('<p/>').text(name).appendTo(d);
 
 		var d1 = $('<div/>').css('width', rate*100/maxRate+"%")
-							.css('background','#115');
+							.css('background','#55f');
 
 		var d2 = $('<div/>').css('width', (maxRate-rate)*100/maxRate+"%")
-							.css('background','#88f');
+							.css('background','#555');
 
-		var sub = $('<p class="skill-sub"/>').text(rate+'/'+maxRate)
-											 .hide();
+		var sub = $('<p class="skill-sub"/>').text(rate+'/'+maxRate);
 
 		d.append(sub).append(d1).append(d2);
 		d.appendTo(skill[i]);
 	}
 
-	$('skill').hover(function() {
-		$(this).find('.skill-sub').slideDown(400);
+	$('skill p').hover(function() {
+		$(this).find('.skill-display').slideDown(400);
 	}, function() {
-		$(this).find('.skill-sub').slideUp(400);
+		$(this).find('.skill-display').slideUp(400);
 	})
 });

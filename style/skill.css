@@ -1,35 +1,40 @@
 .skill-display {
-	font-size: 18px;
-	font-family: Source Code Pro, monospace;
-	color: #003;
-	width: 90%;
+	color: #005;
 	display: block;
 	margin: auto;
+
+	transition: 0.5s;
 }
 
 .skill-mem {
 	background-color: #EEEEEE;
-	margin: 15px;
-	display: inline-block;
+	display: block;
 	vertical-align: middle;
-	width: 30%;
+	height: 100%;
 	text-align: left;
-	font-size: 14px;
+	font-size: 15px;
+	border: 5px solid #ccc;
+	padding: 15px;
+}
+.skill-display:hover {
+	background-color: #fff;
+}
+.skill-display:hover .skill-sub {
+	font-weight: bold;
 }
 .skill-mem h3 {
 	color: #115;
-	font-family: Open Sans, sans-serif;
 	text-align: center;
-	font-size: 16px;
 }
 
 .skill-display div {
 	display: inline-block;
-	height: 15px;
+	height: 1em;
+	transition: 0.5s;
 }
 
 .skill-sub {
-	font-family: Source Code Pro, monospace;
-	font-size: 12px;
+	font-size: 14px;
 	color: #333;
+	transition: 0.5s;
 }
