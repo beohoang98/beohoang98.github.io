@@ -86,8 +86,6 @@ body {
 	margin-top: 15px;
 }
 .info h2 {
-	font-size: 25px;
-
 	padding: 10px;
 	text-align: center;
 	color: #555;
@@ -120,7 +118,6 @@ body {
 	display: block;
 	text-align: center;
 	color: black;
-	font-size: 25px;
 }
 .info-mem:hover .info-toggle {
 	opacity: 1;
@@ -144,7 +141,6 @@ body {
 	text-align: right;
 
 	font-weight: bold;
-	font-size: 20px;
 
 	margin: 15px;
 }
@@ -263,6 +259,10 @@ body {
 }
 
 @media only screen and (max-width: 768px) {
+	body {
+		font-size: 12px;
+	}
+
 	[class*="col-"], .info-mem {
 		width: 100%;
 	}
@@ -301,6 +301,12 @@ body {
 	}
 	.show-a {
 		display: block !important;
+	}
+	.nienkhoa {
+		width: 60px;
+		height: 60px;
+		line-height: 60px;
+		position: relative;
 	}
 }
 
