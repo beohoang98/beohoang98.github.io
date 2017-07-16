@@ -262,6 +262,9 @@ body {
 	body {
 		font-size: 12px;
 	}
+	#header {
+		height: 400px;
+	}
 
 	[class*="col-"], .info-mem {
 		width: 100%;
