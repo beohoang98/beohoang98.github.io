@@ -15,29 +15,30 @@
 	<div class="row">
 		<div class="col-3" id="side-bar">
 			<div id="side-bar-hover">&#10094</div>
-			<a href="#header">HOME</a>
-			<a href="#about">ABOUT</a>
-			<a href="#education">EDUCATION</a>
-			<a href="#skills">SKILLS</a>
-			<a href="#experiment">EXPERIMENT</a>
+			<a id="header-a" href="#header">HOME</a>
+			<a id="about-a" href="#about">ABOUT</a>
+			<a id="education-a" href="#education">EDUCATION</a>
+			<a id="skills-a" href="#skills">SKILLS</a>
+			<a id="pet-project-a" href="#pet-project">PET PROJECT</a>
 		</div>
 		<div class="container col-9">
 			<div id="header">
 				<div class="header-title row">
 					<div class="col-6 myName">
-						<h1>HOÀNG DÂN AN</h1>
-						<p>Future Game Developer</p>
+						<div>
+							<h1>HOÀNG DÂN AN</h1>
+							<p>Future Front-end Developer</p>
+						</div>
 					</div>
 					<div class="social-info col-6">
+						<div class="info-mem avatar">
+							<img src="image/avatar.jpg" />
+						</div>
 						<div>
-							<a class="social-logo social-fb" href="https://www.facebook.com/beo.hoang.395">
-					</a>
-							<a class="social-logo social-github" href="https://github.com/beohoang98">
-					</a>
-							<a class="social-logo social-linkedIn" href="https://www.linkedin.com/in/an-hoang98">
-					</a>
-							<a class="social-logo social-freeCamp" href="https://www.freecodecamp.com/beohoang98">
-					</a>
+							<a class="social-logo social-fb" href="https://www.facebook.com/beo.hoang.395"></a>
+							<a class="social-logo social-github" href="https://github.com/beohoang98"></a>
+							<a class="social-logo social-linkedIn" href="https://www.linkedin.com/in/an-hoang98"></a>
+							<a class="social-logo social-freeCamp" href="https://www.freecodecamp.com/beohoang98"></a>
 						</div>
 					</div>
 				</div>
@@ -45,9 +46,6 @@
 			<div id="main">
 				<div id="about" class="info">
 					<h2>ABOUT</h2>
-					<div class="info-mem avatar">
-						<img src="image/avatar.jpg" />
-					</div>
 					<div class="info-mem">
 						<div class="info-content">
 							<h3>SUMMARY</h3>
@@ -89,7 +87,7 @@
 				<div id="skills" class="info">
 					<h2>SKILLS</h2>
 					<div class="row">
-						<div class="col-6">
+						<div class="col-4">
 							<div class="skill-mem">
 								<h3>Programming Languages</h3>
 								<skill rate="8.0" name="Pascal"></skill>
@@ -97,9 +95,12 @@
 								<skill rate="5.0" name="HTML/CSS"></skill>
 								<skill name="JavaScript" rate="3.5"></skill>
 							</div>
+						</div>
+						<div class="col-4">
 							<div class="skill-mem">
-								<h3>Foreign Languages</h3>
-								<skill name="TOEIC" rate="525" max="990"></skill>
+								<h3>IDE</h3>
+								<skill name="Visual Studio 2013" rate="7.0"></skill>
+								<skill name="Free Pascal" rate="8.0"></skill>
 							</div>
 							<div class="skill-mem">
 								<h3>Framework</h3>
@@ -107,11 +108,10 @@
 								<skill name="Bootstrap" rate="3"></skill>
 							</div>
 						</div>
-						<div class="col-6">
+						<div class="col-4">
 							<div class="skill-mem">
-								<h3>IDE</h3>
-								<skill name="Visual Studio 2013" rate="7.0"></skill>
-								<skill name="Free Pascal" rate="8.0"></skill>
+								<h3>Foreign Languages</h3>
+								<skill name="TOEIC" rate="525" max="990"></skill>
 							</div>
 							<div class="skill-mem">
 								<h3>Others</h3>
@@ -122,23 +122,21 @@
 						</div>
 					</div>
 				</div>
-				<div id="experiment" class="info">
-					<h2>EXPERIMENT</h2>
-					<div class="info-mem">
-						<div class="nienkhoa">2015-today</div>
-						<h3>PET PROJECT</h3>
-						<div class="info-content">
-							<ol>
-								<li>Game Snake 360 in Pascal</li>
-								<li>Counting Word Project in C++</li>
-								<li>...</li>
-							</ol>
+				<link rel="stylesheet" href="style/slideshow.css">
+				<div id="pet-project" class="info">
+					<h2>PET PROJECT</h2>
+					<div class="slide">
+						<div class="slide-container">
+							<div class="slide-content">
+
+							</div>
 						</div>
-						<div class="info-toggle">
-							<p>Mini Project which was made for fun or for praticing new things.</p>
-							<p>(Những project mini để làm cho vui và để ôn luyện kiến thức cũ cũng như thử kiến thức mới)</p>
+						<div class="slide-cursor">
+							<div class="slide-cursor-l">&#10094</div>
+							<div class="slide-cursor-r">&#10095</div>
 						</div>
 					</div>
+					<script src="script/PetProjectSlideShow.js"></script>
 				</div>
 			</div>
 		</div>

@@ -17,7 +17,7 @@
 	text-align: left;
 	font-size: 15px;
 	border: 10px solid #ccd;
-	padding: 2em;
+	padding: 1em;
 }
 .skill-display:hover {
 	background-color: #fff;
@@ -30,12 +30,16 @@
 	text-align: center;
 }
 .skill-display {
-	padding: 1em;
+	padding: 0.5em;
 }
 .skill-display div {
 	display: inline-block;
-	height: 1em;
-	transition: 0.5s;
+	font-size: 0.75em;
+	height: 1.5em;
+	line-height: 1.5em;
+	text-align: center;
+	color: #111;
+	overflow: hidden;
 }
 .skill-display p {
 	margin: 0;

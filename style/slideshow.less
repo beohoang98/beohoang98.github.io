@@ -1,0 +1,39 @@
+.slide {
+    position: relative;
+    overflow: auto;
+    &-container {
+        min-height: 50vh;
+    }
+    &-content {
+
+    }
+    &-cursor {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        &-l, &-r {
+            display: inline-block;
+            float: left;
+            padding: 0.5em;
+            font-size: 2em;
+
+            cursor: pointer;
+            transition: 0.5s;
+
+            &:hover {
+                background-color: #555;
+                color: #ccd;
+            }
+            &:active {
+                transition: 0s;
+                background-color: #111;
+            }
+            border-radius: 0px 1em 1em 0px;
+        }
+        &-r {
+            float: right;
+            border-radius: 1em 0 0 1em;
+        }
+    }
+}

@@ -7,6 +7,7 @@ $(document).ready(function(){
 		var name = skill[i].getAttribute('name');
 		var maxRate = skill[i].getAttribute('max');
 		if (!maxRate) maxRate=10;
+		var RatePercent = rate*100/maxRate;
 
 		var d = $('<div class="skill-display"></div>');
 		$('<p/>').text(name).appendTo(d);
@@ -14,8 +15,13 @@ $(document).ready(function(){
 		var d1 = $('<div/>').css('width', rate*100/maxRate+"%")
 							.css('background','#55f');
 
+		if (RatePercent >= 80) d1.html("skilled");
+		else if (RatePercent >= 50) d1.html("familar");
+		else d1.html("know little");
+
 		var d2 = $('<div/>').css('width', (maxRate-rate)*100/maxRate+"%")
-							.css('background','#555');
+							.css('background','#555')
+							.html(".");
 
 		var sub = $('<p class="skill-sub"/>').text(rate+'/'+maxRate);
 
