@@ -132,8 +132,8 @@
 							</div>
 						</div>
 						<div class="slide-cursor">
-							<div class="slide-cursor-l">&#10094</div>
-							<div class="slide-cursor-r">&#10095</div>
+							<div onclick="changeSlide(-1);" class="slide-cursor-l">&#10094</div>
+							<div onclick="changeSlide(+1);" class="slide-cursor-r">&#10095</div>
 						</div>
 					</div>
 					<script src="script/PetProjectSlideShow.js"></script>
@@ -141,7 +141,10 @@
 			</div>
 		</div>
 	</div>
-	<div id="footer">2017</div>
+	<div id="footer" class="row">
+		<div class="col-6">@2017</div>
+		<div class="col-6">Design by BeoHoang</div>
+	</div>
 	<script type="text/javascript" src="script/skill.js"></script>
 </body>
 

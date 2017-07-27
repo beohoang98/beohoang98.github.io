@@ -1,5 +1,5 @@
 .skill-display {
-	color: #005;
+	color: #000;
 	display: block;
 	margin: auto;
 
@@ -13,10 +13,9 @@
 	background-color: #EEEEEE;
 	display: block;
 	vertical-align: middle;
-	height: 100%;
+
 	text-align: left;
-	font-size: 15px;
-	border: 10px solid #ccd;
+	margin: 1em;
 	padding: 1em;
 }
 .skill-display:hover {
@@ -26,7 +25,7 @@
 	font-weight: bold;
 }
 .skill-mem h3 {
-	color: #115;
+	color: #111;
 	text-align: center;
 }
 .skill-display {

@@ -44,21 +44,20 @@ body {
 	margin: 0;
 }
 #header p {
-	color: #888;
+	color: #555;
 }
 
 .header-title {
 	text-align: center;
-	color: #ddd;
+	color: rgb(255,214,0);
 	text-shadow: 0px 5px 10px black;
 }
 
 #side-bar {
 	display: inline-block;
-	border-right: 5px solid #ccd;
 
 	height: 90vh;
-	background-color: #555;
+	background-color: #622;
 	overflow-x: hidden;
 }
 #side-bar-hover {
@@ -72,19 +71,18 @@ body {
 	color: white;
 
 	padding: 1.5em 1em;
-	background-color: #555;
 
 	transition: 0.5s;
 }
 #side-bar a:hover , .onView {
-	background-color: #ccd !important;
+	background-color: #c55 !important;
 	color: #111 !important;
 }
 
 
 #main {
 	position: relative;
-	background-color: #ccd;
+	background-color: #c55;
 }
 
 #footer {
@@ -98,11 +96,13 @@ body {
 
 .info {
 	margin-top: 15px;
+	min-height: 90vh;
 }
 .info h2 {
-	padding: 10px;
+	padding: 0.5em;
 	text-align: center;
-	color: #555;
+	color: rgba(192, 80, 80, .15);
+	text-shadow: 0 1px 9px #c55, 0 0 0 #000;
 }
 .info h2::before {
 	display: block;
@@ -143,8 +143,8 @@ body {
 	position: absolute;
 	right: 0%;
 	top: 0%;
-	background-color: #115;
-	color: white;
+	background-color: #622;
+	color: rgb(255,214,0);
 	padding: 15px;
 
 	transition: 0.5s;
@@ -171,11 +171,13 @@ body {
 	border-radius: 100%;
 	border: 10px solid #555;
 
-	background-color: #ddf;
 	color: black;
 
 	text-align: center;
 	transition: 0.5s;
+}
+.info-mem:hover .nienkhoa {
+	border-color: rgb(255,214,0);
 }
 
 .info-content {
@@ -204,7 +206,7 @@ body {
 	border-radius: 100%;
 	margin: 0px auto;
 	width: 200px;
-	background-color: #55f;
+	background-color: rgb(255,214,0);
 	perspective: 10px;
 
 	animation-name: lac;
@@ -310,8 +312,8 @@ body {
 	#side-bar-hover {
 		display: inline-block;
 		float: right;
-		width: 50px;
-		height: 100px;
+		width: 1em;
+		height: 100%;
 		line-height: 100px;
 		font-weight: bold;
 		font-size: 2em;
@@ -329,7 +331,7 @@ body {
 		width: 200px;
 	}
 	.container {
-		padding-left: 50px;
+		padding-left: 1em;
 	}
 	.show-a {
 		display: block !important;

@@ -1,14 +1,4 @@
 $(document).ready(function(){
-	$(".social-info a").attr('target','_blank')
-						.attr('rel','noopener noreferer');
-
-	///when mouse over the info-mem
-	$('.info-mem').hover(function(){
-		$(this).find('.nienkhoa').css('border-color','#55f');
-	}, function() {
-		$(this).find('.nienkhoa').css('border-color','#555');
-	});
-
 	//
 	$('#side-bar-hover').on("click",function() {
 		$(this).parent().find("a").toggleClass("show-a");
