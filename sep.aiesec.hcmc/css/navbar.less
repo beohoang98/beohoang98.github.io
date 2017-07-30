@@ -1,0 +1,47 @@
+@navH : 50px;
+@highcolor: rgb(181,17,0);
+
+#navbar {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+
+    background-color: @highcolor;
+
+    height: @navH;
+    #aiesec-logo {
+        width: 200px;
+        height: 100%;
+        display: flex;
+        float: left;
+        img {
+            width: 100%;
+            margin: auto;
+        }
+    }
+}
+#main {
+    margin-top: @navH;
+}
+
+.menu {
+    display: flex;
+    width: 100%;
+    flex-flow: row;
+    justify-content: space-around;
+    a {
+        text-decoration: none;
+        color: #ddd;
+    }
+    &-item {
+        width: 33.33%;
+        height: @navH;
+        line-height: @navH;
+        margin: auto;
+        &:hover {background-color: fadeout(#000, 70%);}
+        text-align: center;
+        font-weight: bold;
+    }
+}

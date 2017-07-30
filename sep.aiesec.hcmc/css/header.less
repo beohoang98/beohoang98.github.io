@@ -1,0 +1,40 @@
+@padding : 15px;
+@textcolor: #fff;
+@highcolor: rgb(181,17,0);
+@lowcolor: rgb(5,0,0);
+@textlowcolor: rgb(189,189,189);
+
+#header {
+    width: 100%;
+    height: 400px;
+    background-color: @lowcolor;
+    color: @textcolor;
+    overflow: hidden;
+    text-align: center;
+
+    .banner {
+        height: 100%;
+        img {
+            width: 300px;
+        }
+        &-info {
+            height: 100%;
+            padding: @padding;
+        }
+    }
+    table {
+        margin: 0 auto;
+        th, td {
+            padding: auto @padding;
+            border-bottom: 1px solid fadeout(@highcolor, 50%);
+        }
+        th {
+            color:  @highcolor;
+            font-size: 1.5em;
+        }
+        td {
+            color: @textlowcolor;
+            font-size: 0.75em;
+        }
+    }
+}

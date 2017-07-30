@@ -1,0 +1,34 @@
+#header {
+  width: 100%;
+  height: 400px;
+  background-color: #050000;
+  color: #ffffff;
+  overflow: hidden;
+  text-align: center;
+}
+#header .banner {
+  height: 100%;
+}
+#header .banner img {
+  width: 300px;
+}
+#header .banner-info {
+  height: 100%;
+  padding: 15px;
+}
+#header table {
+  margin: 0 auto;
+}
+#header table th,
+#header table td {
+  padding: auto 15px;
+  border-bottom: 1px solid rgba(181, 17, 0, 0.5);
+}
+#header table th {
+  color: #b51100;
+  font-size: 1.5em;
+}
+#header table td {
+  color: #bdbdbd;
+  font-size: 0.75em;
+}
