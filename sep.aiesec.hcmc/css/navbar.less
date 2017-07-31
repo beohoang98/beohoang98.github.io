@@ -7,6 +7,7 @@
     width: 100%;
     top: 0;
     left: 0;
+    padding: 0 200px;
 
     background-color: @highcolor;
 
@@ -24,6 +25,11 @@
 }
 #main {
     margin-top: @navH;
+}
+#content {
+    .container {
+        background-color: #ccc;
+    }
 }
 
 .menu {
@@ -43,5 +49,23 @@
         &:hover {background-color: fadeout(#000, 70%);}
         text-align: center;
         font-weight: bold;
+    }
+}
+
+
+#footer {
+    background-color: @highcolor;
+    color: #000;
+    height: 300px;
+}
+
+.logo-quote {
+    p {
+        color: #aaa;
+        margin: 0;
+    }
+    .logo-letter {
+        font-size: 2em;
+        color: #fff;
     }
 }

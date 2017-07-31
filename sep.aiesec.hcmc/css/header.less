@@ -3,10 +3,16 @@
 @highcolor: rgb(181,17,0);
 @lowcolor: rgb(5,0,0);
 @textlowcolor: rgb(189,189,189);
-
+#hieuung(@name, @time) {
+    animation-name: @name;
+    animation-duration: @time;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+}
 #header {
     width: 100%;
-    height: 400px;
+    height: 90vh;
     background-color: @lowcolor;
     color: @textcolor;
     overflow: hidden;
@@ -15,7 +21,7 @@
     .banner {
         height: 100%;
         img {
-            width: 300px;
+            width: 90%;
         }
         &-info {
             height: 100%;
@@ -31,10 +37,20 @@
         th {
             color:  @highcolor;
             font-size: 1.5em;
+            #hieuung(~"sanglen", 1s);
         }
         td {
             color: @textlowcolor;
             font-size: 0.75em;
         }
+    }
+}
+
+@keyframes sanglen {
+    0% {
+        color: fadeout(@highcolor, 50%);
+    }
+    100% {
+        color: @highcolor;
     }
 }

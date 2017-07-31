@@ -5,15 +5,15 @@
     transition: 0.4s;
 }
 body {
+    background-color: rgb(74,0,0);
     margin: 0;
     font-family: "Segoe UI", sans-serif;
 }
 
 .outer {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: wrap;
     justify-content: space-around;
-
     width: 100%;
     height: 100%;
 }
@@ -22,6 +22,7 @@ body {
 }
 .info {
     padding: 1em;
+
     h2 {
         padding: 0.5em 0;
         margin-bottom: 1em;
@@ -29,9 +30,37 @@ body {
     }
     &-item {
         padding: 0.5em;
+        overflow: auto;
         > div:first-child {
             text-align: center;
             font-size: 2em;
         }
+        &-content {
+            display: flex;
+        }
     }
+    &-icon {
+        float: left;
+        margin-right: 1em;
+    }
+}
+
+#photo-area {
+    .photo-thumb {
+        height: 400px;
+        overflow: hidden;
+        &-first {
+            height: auto;
+            overflow: visible;
+        }
+    }
+    img {
+        width: 100%;
+    }
+}
+
+.card {
+    background-color: #fff;
+    box-shadow: 0px 2px 5px rgba(0,0,0,.5);
+    width: 300px;
 }

@@ -42,7 +42,7 @@
   }
   [class*="col-"] {
     width: 100%;
-    min-width: 320px;
+    min-width: 300px;
   }
   #header {
     height: auto;

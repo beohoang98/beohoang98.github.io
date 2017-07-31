@@ -1,4 +1,4 @@
-.createCol(@i : 2) when (@i <= 12) {
+.createCol(@i:2) when (@i <= 12) {
     .col-@{i} {
         float: left;
         width: @i * 100% / 12;
@@ -17,27 +17,29 @@
     width: 1000px;
     margin: 0 auto;
 }
-
 @media only screen and (max-width: 1000px) {
     .container {
         width: 768px;
     }
 }
-
 @media only screen and (max-width: 768px) {
     .container {
         width: 100%;
     }
+
     [class*="col-"] {
         width: 100%;
-        min-width: 320px;
+        min-width: 300px;
     }
+
     #header {
         height: auto;
+
         .banner img {
             width: 200px;
             height: auto;
         }
+
         .banner-info {
             height: auto;
         }
