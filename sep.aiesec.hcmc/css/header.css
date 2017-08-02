@@ -19,8 +19,8 @@
 #header table {
   margin: 0 auto;
 }
-#header table th,
-#header table td {
+#header table td,
+#header table th {
   padding: auto 15px;
   border-bottom: 1px solid rgba(181, 17, 0, 0.5);
 }
