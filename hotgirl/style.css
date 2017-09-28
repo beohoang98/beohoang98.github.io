@@ -1,0 +1,42 @@
+@CHARSET "ISO-8859-1";
+
+body {
+	margin: 0;
+	font-family: "Roboto", sans-serif;
+	font-size: 18px;
+	text-align: center;
+	background: #fff;
+	color: #111;
+}
+
+#content {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+}
+
+.link {
+	display: inline-block;
+	position: relative;
+	margin: 2em;
+	width: 200px;
+	height: 200px;
+	box-shadow: 0px 5px 20px -3px #000;
+	overflow: hidden;
+	border-radius: 50%;
+	border: 10px solid #fff;
+	transition: 0.5s;
+}
+.link:hover {
+	transform: translateY(-15px);
+	box-shadow: 0px 20px 35px -3px rgba(0,0,0,0.5);
+}
+.link a {
+	width: 100%;
+	height: 100%;
+}
+.link img {
+	display: inline-block;
+	width: 100%;
+	background: #888;
+}
