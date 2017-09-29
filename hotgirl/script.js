@@ -2,18 +2,19 @@
  * 
  */
 
-var limit = 10;
+var limit = 25;
 var offset = 0;
 var arrID = [];
 var token;
 
 function addDataToWeb() {
-	arrID.forEach((fbID, index)=>{
-   		if (index<offset||index>offset+limit) return;
-		var link = createLink(index, fbID);
+	$("#pages").html((offset+limit)+"/"+arrID.length);
+	for (var index=offset; index < limit+offset; ++index) {
+		if (index >= arrID.length) break;
+		var link = createLink(index, arrID[index]);
 		$("#content").append(link);
-    	getAndCreateInfoTab(index, fbID, token);
-	});
+    	getAndCreateInfoTab(index, arrID[index], token);
+	}
 }
 
 async function readTextFile(file)
@@ -42,10 +43,9 @@ function createLink(idPost, fbID) {
 function getAndCreateInfoTab(index, fbID, token) {
 	$.ajax({
 		url: "//graph.facebook.com/v2.10/"+fbID,
-		async:false,
 		data: {
 			"access_token":token,
-			fields:"id,name,picture.width(720),short_name"
+			fields:"id,name,picture.width(720)"
 		},
 		success: function(data) {
 			$("#"+index+" img").attr("src", data.picture.data.url);
@@ -64,14 +64,11 @@ function createInfoTab(data) {
 	var name = $("<div/>").addClass("info-name")
 							.html(data.name)
 							.appendTo(tab);
-	var shortname = $("<div/>").addClass("info-shortname")
-							.html("("+data.short_name+")")
-							.appendTo(tab);
 	var follow_but = $("<iframe/>")
 						.attr("src",url)
+						.attr("frameborder","0")
+						.attr("scrolling","no")
 						.appendTo(tab);
-	var photo = $("<div/>").addClass("info-photos");
-	getUserPhotos(data.id);
 
 	return wrap;
 }
@@ -104,6 +101,7 @@ async function getAccessToken() {
 }
 
 $("#load-more").on("click",()=>{
-	offset+=10;
+	offset+=limit;
+	if (offset > arrID.length) offset = arrID.length;
 	addDataToWeb();
 });
