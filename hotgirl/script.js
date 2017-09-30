@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 
 var limit = 25;
@@ -34,7 +34,7 @@ function createLink(idPost, fbID) {
 	var link = $("<a/>").attr("target","_blank")
 						.attr("href","https://fb.com/"+fbID);
 	var img = $("<img/>")
-	
+
 	link.append(img);
 	wrap.append(link);
 	return wrap;
@@ -93,8 +93,8 @@ $(document).on("DOMContentLoaded", async()=>{
 });
 
 async function getAccessToken() {
-	var appID = "370804436672809";
-	var secretID = "05f337c576c5bb8db5ecc61eeded390a";
+	var appID = "151413545475662";
+	var secretID = "f3db5807151c25c3521cc6a993ca929e";
 	var rs = await fetch("//graph.facebook.com/oauth/access_token?client_id="+appID+"&client_secret="+secretID+"&grant_type=client_credentials");
 	var token = await rs.json();
 	return token.access_token;
