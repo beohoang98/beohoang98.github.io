@@ -6,9 +6,9 @@ var limit = 25;
 var offset = 0;
 var arrID = [];
 var token;
+var offset_display = 0;
 
 function addDataToWeb() {
-	$("#pages").html((offset+limit)+"/"+arrID.length);
 	for (var index=offset; index < limit+offset; ++index) {
 		if (index >= arrID.length) break;
 		var link = createLink(index, arrID[index]);
@@ -45,10 +45,13 @@ function getAndCreateInfoTab(index, fbID, token) {
 		url: "//graph.facebook.com/v2.10/"+fbID,
 		data: {
 			"access_token":token,
-			fields:"id,name,picture.width(720)"
+			fields:"id,name,picture.width(320)"
 		},
 		success: function(data) {
 			$("#"+index+" img").attr("src", data.picture.data.url);
+			//
+			++offset_display;
+			$("#pages").html(offset_display+"/"+arrID.length);
 			// console.log(data);
 			var tab = createInfoTab(data);
 			$("#"+index).append(tab);
