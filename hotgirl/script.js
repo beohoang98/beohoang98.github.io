@@ -91,8 +91,9 @@ function getUserPhotos(fbID) {
 $(document).on("DOMContentLoaded", async()=>{
 	token = await getAccessToken();
 	await readTextFile("data.txt");
-	document.removeEventListener("DOMContentLoaded", function() {});
 	console.log("LOADED");
+	$("#wait").remove();
+	document.removeEventListener("DOMContentLoaded", function() {});
 });
 
 async function getAccessToken() {
