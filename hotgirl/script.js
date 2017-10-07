@@ -21,18 +21,19 @@ async function readTextFile(file)
 {
    	await $.ajax({
    		url: file,
+   		type: "GET",
    		success: function(data) {
-   			arrID = data.split("\n");
+   			arrID = data.data;
    			addDataToWeb(token);
    		}
    	});
 }
 
 function createLink(idPost, fbID) {
-	var wrap = $("<div/>").addClass("link")
+	var wrap = $("<div/>").addClass("link link-hide")
 							.attr("id", idPost);
 	var link = $("<a/>").attr("target","_blank")
-						.attr("href","https://fb.com/"+fbID);
+						.attr("href","https://www.facebook.com/"+fbID);
 	var img = $("<img/>")
 
 	link.append(img);
@@ -55,7 +56,10 @@ function getAndCreateInfoTab(index, fbID, token) {
 			// console.log(data);
 			var tab = createInfoTab(data);
 			$("#"+index).append(tab);
-			tab.focus();
+		},
+		error: function() {
+			console.log("error");
+			$("#"+index).remove();
 		}
 	});
 }
@@ -90,7 +94,7 @@ function getUserPhotos(fbID) {
 
 $(document).on("DOMContentLoaded", async()=>{
 	token = await getAccessToken();
-	await readTextFile("data.txt");
+	await readTextFile("https://beohoang98.herokuapp.com/hotgirl/testAPI.php");
 	console.log("LOADED");
 	$("#wait").remove();
 	document.removeEventListener("DOMContentLoaded", function() {});
@@ -109,3 +113,44 @@ $("#load-more").on("click",()=>{
 	if (offset > arrID.length) offset = arrID.length;
 	addDataToWeb();
 });
+
+$("#dong-gop .title").on("click",()=>{
+	$("body").toggleClass("darker");
+	$("#dong-gop").find(".preview").slideToggle(200);
+	$("#dong-gop input")[0].value = "";
+});
+
+$("#dong-gop input").on("input", async()=>{
+
+	$("#dong-gop .preview-avatar img").attr("src", "");
+	$("#dong-gop .preview-name").text("...");
+	$(".sendID").slideUp(200);
+
+	let id = $("#dong-gop input")[0].value;
+	let url = "https://graph.facebook.com/v2.10/"+id+"?"
+				+$.param({
+					"access_token":(token),
+					"fields":"name,picture.width(320),metadata{type}",
+					"metadata":1
+				});
+	await fetch(url, {
+		method: "GET"
+	}).then((res)=>{
+		return res.json();
+	}).then((json)=>{
+		if (!json.picture || json.metadata.type!=="user") {
+			return;
+		};
+		$("#dong-gop .preview-avatar img").attr("src", json.picture.data.url);
+		$("#dong-gop .preview-name").text(json.name);
+		$(".sendID").slideDown(200);
+	});
+});
+
+$(window).scroll((e)=>{
+	$(".link-hide").each((i, val)=>{
+		if ($(val).visible(true)) {
+			$(val).removeClass("link-hide");
+		}
+	});
+})
