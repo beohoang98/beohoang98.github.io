@@ -58,7 +58,7 @@ function getAndCreateInfoTab(index, fbID, token) {
 			$("#"+index).append(tab);
 		},
 		error: function() {
-			console.log("error");
+			console.log("error "+fbID+".");
 			$("#"+index).remove();
 		}
 	});
@@ -80,17 +80,17 @@ function createInfoTab(data) {
 	return wrap;
 }
 
-function getUserPhotos(fbID) {
-	$.getJSON("//graph.facebook.com/"+fbID+"/photos?callback=?",{
-		"access_token":token,
-		"fields":"images"
-	}, function(data) {
-		var url = data.images[1].source;
-		$("<img/>").css("width","50px")
-					.attr("src",url)
-					.appendTo($("#"+id+" .info-photos"));
-	});
-}
+// function getUserPhotos(fbID) {
+// 	$.getJSON("//graph.facebook.com/"+fbID+"/photos?callback=?",{
+// 		"access_token":token,
+// 		"fields":"images"
+// 	}, function(data) {
+// 		var url = data.images[1].source;
+// 		$("<img/>").css("width","50px")
+// 					.attr("src",url)
+// 					.appendTo($("#"+id+" .info-photos"));
+// 	});
+// }
 
 $(document).on("DOMContentLoaded", async()=>{
 	token = await getAccessToken();
@@ -118,6 +118,24 @@ $("#dong-gop .title").on("click",()=>{
 	$("body").toggleClass("darker");
 	$("#dong-gop").find(".preview").slideToggle(200);
 	$("#dong-gop input")[0].value = "";
+});
+$("#dong-gop .sendID").click("click", ()=>{
+	let fbID = $("#dong-gop input")[0].value;
+	if (!fbID) return;
+	$.ajax({
+		url: "postID.php",
+		method: "POST",
+		data: {
+			"id": fbID
+		},
+		success: ()=>{
+			console.log("send success");
+		},
+		error: ()=>{
+			console.log("send error");
+		}
+	});
+	$("#dong-gop .title").click();
 });
 
 $("#dong-gop input").on("input", async()=>{
