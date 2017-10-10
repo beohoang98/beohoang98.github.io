@@ -4,16 +4,75 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 	<title>Hoàng Dân An</title>
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="style/style.css">
-	<link rel="stylesheet" type="text/css" href="style/skill.css">
-	<script type="text/javascript" src="script/effect.js"></script>
+	<link rel="stylesheet" href="cv_style.css">
+	<link rel="stylesheet" href="cv_style_skills.css">
+	<script src="cv_script_load.js"></script>
 </head>
 
 <body>
-
-	<script type="text/javascript" src="script/skill.js"></script>
+	<div id="navbar" class="nav">
+		<div class="basic-info">
+			<div class="float">
+				<div class="name">HOÀNG DÂN AN</div>
+				<div class="bio">One plus one equal two</div>
+				<div class="contact">
+					<a href="https://www.facebook.com/beo.hoang395" target="_blank">
+						<i class="icon icon-fb"></i>
+					</a>
+					<a href="https://www.linkedin.com/in/an-hoang98" target="_blank">
+						<i class="icon icon-linkedin"></i>
+					</a>
+					<a href="https://github.com/beohoang98" target="_blank">
+						<i class="icon icon-github"></i>
+					</a>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	<div id="content">
+		<div class="info" id="about">
+			<div class="info-name">ABOUT ME</div>
+			<div class="info-content">
+				<p>Bằng đam mê lập trình và khao khát để có thể trở thành một lập trình viên thực thụ, tôi luôn cố gắng học hỏi và luyện tập không ngừng.</p>
+				<p>Lập trình viên không phải chỉ là 1 người thợ gõ code, mà là một người tìm ra cách giải quyết vấn đề, là một người tạo ra các giá trị cho công ty, xã hội và cuộc sống. Vì thế, tôi luôn đặt cái tâm vào công việc mình đang làm và giá trị mang lại cho công ty, xã hội.</p>
+			</div>
+		</div>
+		<div class="info">
+			<div class="info-name">EDUCATION</div>
+			<div class="info-content">
+				<ul>
+					<li>THPT CHUYEN LY TU TRONG</li>
+					<li>DAI HOC KHOA HOC TU NHIEN TP.HCM</li>
+				</ul>
+			</div>
+		</div>
+		<div class="info">
+			<div class="info-name">PROGRAMMING SKILLS</div>
+			<div class="info-content">
+				<div class="skill-box">
+					<skill name="C++" value="3" max="10"></skill>
+					<skill name="HTML, CSS, JS" value="4" max="10"></skill>
+					<skill name="PHP" value="2" max="10"></skill>
+					<skill name="MySQL" value="0" max="10"></skill>
+				</div>
+			</div>
+		</div>
+		<div class="info">
+			<div class="info-name">PERSONAL SKILLS</div>
+			<div class="info-content">
+				<div class="skill-box">
+					<skill name="TOEIC" value="525" max="945"></skill>
+					<skill name="Teamwork" value="1" max="10"></skill>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="footer"></div>
+	<script src="cv_script_skills.js"></script>
 </body>
 
 </html>
