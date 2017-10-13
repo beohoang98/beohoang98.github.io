@@ -46,7 +46,7 @@ body {
 }
 .nav-fixed {
 	position: fixed;
-	height: 100px;
+	top: -300px;
 	background-position: 35% 40%;
 	.basic-info {
 		.contact {
@@ -59,10 +59,10 @@ body {
 	position: relative;
 	width: 100%;
 	.float {
-		position: fixed;
-		top: 1em;
+		position: absolute;
+		top: 50%;
 		left: 50%;
-		// transform: translateY(100%);
+		transform: translateY(-50%);
 	}
 	.name {
 		font-size: 2em;
@@ -77,6 +77,10 @@ body {
 		a {
 			display: inline-block;
 			margin: 0.5em;
+			transition: 0.5s;
+			&:hover {
+				transform: translateY(0.5em);
+			}
 		}
 	}
 }
@@ -92,21 +96,19 @@ body {
 .info {
 	position: relative;
 	margin: 1em 0;
-	min-height: 50vh;
 	&-name {
 		position: absolute;
-		max-width: 100%;
 		width: 1000px;
-		height: 50px;
-		line-height: 50px;
+		height: 2em;
+		// line-height: 2em;
 		background-color: #fff;
 		padding-left: 1em;
-		box-shadow: 0px 5px 5px -4px #000;
+		border-bottom: 1px solid @secondaryColor;
 		font-size: 1.5em;
 		font-family: @fontSerif;
 		&-fixed {
 			position: fixed;
-			top: 100px;
+			top: 0;
 		}
 	}
 	&-content {
@@ -114,7 +116,20 @@ body {
 		padding-top: 50px;
 		text-align: justify;
 		font-family: @fontSans;
+		display: flex;
+		flex-flow: wrap;
+
+		min-height: 50vh;
+		> * {
+			margin: auto;
+		}
 	}
+}
+
+.fix {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
 }
 
 #about {
@@ -139,13 +154,20 @@ body {
 	.basic-info .float {
 		left: 15px;
 	}
+	.info-name {
+		font-size: 1em;
+	}
+	.info-content {
+		min-height: 100vh;
+	}
 }
 
 .icon {
 	display: inline-block;
+	vertical-align: middle;
 	width: 2em;
 	height: 2em;
-	background-size: cover;
+	background-size: 100%;
 	&-fb {
 		background-image: url("image/fb.png");
 	}
@@ -154,5 +176,17 @@ body {
 	}
 	&-github {
 		background-image: url("image/github.svg");
+	}
+	&-info {
+		background-image: url("image/info_icon.png");
+	}
+	&-code {
+		background-image: url("image/code_icon.png");
+	}
+	&-education {
+		background-image: url("image/education_icon.png");
+	}
+	&-personal {
+		background-image: url("image/personal_icon.png");
 	}
 }
