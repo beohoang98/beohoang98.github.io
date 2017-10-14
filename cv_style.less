@@ -2,8 +2,8 @@
 
 @fontSans: "Roboto", sans-serif;
 @fontSerif: "Lora", serif;
-@primaryColor: #11a;
-@secondaryColor: #ccc;
+@primaryColor: #33c;
+@secondaryColor: #ddd;
 @textColor0: #000;
 @textColor1: #ddd;
 
@@ -22,10 +22,6 @@ body {
 
 #navbar {
 	background-color: @primaryColor;
-	background-image: url("image/cv_bg.jpg");
-	background-blend-mode: darken;
-	background-repeat: no-repeat;
-	background-size: 320px;
 	color: @textColor1;
 	display: flex;
 	flex-flow: row;
@@ -58,6 +54,20 @@ body {
 .basic-info {
 	position: relative;
 	width: 100%;
+	.image {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-100%, -50%);
+		width: 200px;
+		height: 200px;
+		overflow: hidden;
+		opacity: 0.5;
+		border-radius: 50%;
+		img {
+			width: 100%;
+		}
+	}
 	.float {
 		position: absolute;
 		top: 50%;
@@ -81,6 +91,10 @@ body {
 			&:hover {
 				transform: translateY(0.5em);
 			}
+			i {
+				font-size: 3em;
+				color: @textColor1;
+			}
 		}
 	}
 }
@@ -91,6 +105,7 @@ body {
 	margin: 300px auto 0 auto;
 	background-color: #fff;
 	z-index: 1;
+	box-shadow: 0px 0px 15px rgba(0,0,0,.5);
 }
 
 .info {
@@ -100,10 +115,10 @@ body {
 		position: absolute;
 		width: 1000px;
 		height: 2em;
-		// line-height: 2em;
-		background-color: #fff;
+		line-height: 2em;
+		background-color: @primaryColor/2;
+		color: @textColor1;
 		padding-left: 1em;
-		border-bottom: 1px solid @secondaryColor;
 		font-size: 1.5em;
 		font-family: @fontSerif;
 		&-fixed {
@@ -119,7 +134,7 @@ body {
 		display: flex;
 		flex-flow: wrap;
 
-		min-height: 50vh;
+		min-height: 60vh;
 		> * {
 			margin: auto;
 		}

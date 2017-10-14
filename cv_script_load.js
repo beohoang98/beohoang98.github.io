@@ -21,3 +21,18 @@ $(document).ready(function() {
 		$(this).css("background-image", "url(\""+url+"\")");
 	});
 });
+
+let scrollDistance = 200;
+$(window).on("mousewheel DOMMouseScroll", function(event){
+		event.preventDefault();	
+										
+		var delta = event.originalEvent.wheelDelta/120 || -event.originalEvent.detail/3;
+		var scrollTop = $(window).scrollTop();
+		var finalScroll = -parseInt(delta*scrollDistance);
+		
+		window.scrollBy({
+			top: finalScroll,
+			left: 0,
+			behavior: "smooth"
+		})
+});
