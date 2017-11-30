@@ -1,7 +1,7 @@
 var encodeToken;
 var postData;
 var times = 5;
-var pages = ["ngamgaiTay", "ngamgaiA", "vsbg.official"];
+var pages = ["ngamgaiTay", "ngamgaiA", "sep.aiesec.hcmc"];
 var curPage = pages[0];
 
 function getTokenCookie() {
@@ -30,8 +30,6 @@ async function getToken() {
 }
 
 async function getPostFromPage(url) {
-	
-
 	let isFirstGet = false;
 	if (url == "undefined") isFirstGet = true;
 	if (isFirstGet) url = "https://graph.facebook.com/v2.10/"
@@ -43,6 +41,7 @@ async function getPostFromPage(url) {
 											+",full_picture"
 											+",likes.summary(true).limit(0)"
 											+",shares"
+											+",source"
 											+"}";
 	let result = await fetch(url);
 	let json = await result.json();
@@ -52,16 +51,46 @@ async function getPostFromPage(url) {
 }
 
 function nextAllHide(selec) {
-	$(selec).hide();
+	$(selec).remove();
+}
+
+function createVideo(url) {
+	var video_wrap = $("<div/>").addClass("post-video")
+								.attr("is-play", 0);
+
+	var video = $("<video/>").attr("src",url)
+								.addClass("not-play-yet")
+								.attr("loop","1")
+								.appendTo(video_wrap);
+	var play_button = $("<div/>")
+							.addClass("post-video-playbutton")
+							.appendTo(video_wrap);
+
+	video_wrap.on("click", function() {
+		$(this).find(".not-play-yet").removeClass("not-play-yet");
+		$(this).css("background-color","#000");
+		var video = $(this).find("video").get(0);
+		if (video.paused) {
+			video.play();
+			$(this).attr("is-play", 1);
+		}
+		else{
+			video.pause();
+			$(this).attr("is-play", 0);
+		}
+	});
+
+	return video_wrap;
 }
 
 function createPost(data) {
 	var wrap = $("<div/>").addClass("post")
 							.attr("id", data.id);
-	var wrap_link = $("<a/>").attr("href", data.link)
-							.attr("target","_blank")
-							.attr("title", data.link)
-							.appendTo(wrap);
+	var wrap_link = $("<a/>")
+						// .attr("href", data.link)
+						.attr("target","_blank")
+						.attr("title", data.link)
+						.appendTo(wrap);
 	var picture_wrap = $("<div/>").addClass("post-img")
 								.appendTo(wrap_link);
 	var picture = $("<img/>").attr("src",data.picture)
@@ -71,6 +100,11 @@ function createPost(data) {
 								.addClass("pic-full")
 								.attr("onload", "nextAllHide('#"+data.id+" .pic')")
 								.appendTo(picture_wrap);
+
+	if (data.source) {
+		var video = createVideo(data.source);
+		video.appendTo(picture_wrap);
+	}
 
 
 	var social = $("<div/>").addClass("post-social")
@@ -105,6 +139,8 @@ async function loadPost() {
 		var p = createPost(data);
 		$("#content").append(p);
 	});
+	///
+	$.getScript("https://cdn.jsdelivr.net/npm/afterglowplayer@1.x");
 
 	doStatus("show");
 }

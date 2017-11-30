@@ -49,7 +49,7 @@ body {
 
 .post {
 	margin: 1em;
-	width: 300px;
+	width: 400px;
 	background-color: #fff;
 	overflow: hidden;
 	border-radius: 10px;
@@ -77,6 +77,43 @@ body {
 			top: 50%;
 			left: 0;
 			transform: translateY(-50%);
+		}
+	}
+	&-video {
+		display: flex;
+		position: absolute;
+		top:0;
+		left:0;
+		width: 100%;
+		height: 100%;
+		.not-play-yet {
+			opacity: 0;
+		}
+		video {
+			margin: auto;
+		}
+		&[is-play="0"] {
+			video {
+				filter: brightness(50%);
+			}
+			.post-video-playbutton {
+				transition: 0.2s;
+				opacity: 1;
+			}
+		}
+		&-playbutton {
+			box-sizing: border-box;
+			opacity: 0;
+			position: absolute;
+			width: 60px;
+			height: 60px;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			border: 2px solid transparent;
+			border-width: 30px 0px 30px 60px;
+			border-left-color: #fff;
+			filter: drop-shadow(0px 2px 10px black);
 		}
 	}
 	&-social {

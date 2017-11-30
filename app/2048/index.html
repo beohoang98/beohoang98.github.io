@@ -4,21 +4,50 @@
 		<meta charset=utf-8>
 		<meta name=description content="GAME 2048">
 		<meta name=viewport content="width=device-width, initial-scale=1">
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.min.js"></script>
+		<script src="../p5/p5.min.js"></script>
 		
 		<script src="number.js"></script>
 		<script src="sketch.js"></script>
 		<style type="text/css">
 			body {
+				position: relative;
 				margin: 0;
 				height: 100vh;
 				display: flex;
+				background-color: #fff;
+				transition: 1s;
 			}
 			canvas {
 				margin: auto;
+				z-index: 1;
 			}
-
+			#game-over-scene {
+				position: absolute;
+				display: flex;
+				justify-content: space-around;
+				top: 0;
+				left: 0;
+				width: 100vw;
+				height: 100vh;
+				background-color: rgba(0,0,0,0.8);
+				opacity: 0;
+				transition: 1.5s;
+				z-index: 2;
+			}
+			#game-over-scene div {
+				margin: auto;
+				color: #fff;
+				font-size: 4em;
+				font-family: cursive;
+				font-weight: bold;
+				text-shadow: 0px 2px 10px black;
+				text-align: center;
+			}
 		</style>
 	</head>
-	<body></body>
+	<body>
+		<div id="game-over-scene">
+			<div>GAME OVER</div>
+		</div>
+	</body>
 </html>
