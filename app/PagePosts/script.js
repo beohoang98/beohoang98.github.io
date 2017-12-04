@@ -1,6 +1,7 @@
 var encodeToken;
 var postData;
-var times = 5;
+var limit = 3*4;
+var isLoaded = false;
 var pages = ["ngamgaiTay", "ngamgaiA", "sep.aiesec.hcmc"];
 var curPage = pages[0];
 
@@ -31,12 +32,12 @@ async function getToken() {
 
 async function getPostFromPage(url) {
 	let isFirstGet = false;
-	if (url == "undefined") isFirstGet = true;
+	if (url === "undefined") isFirstGet = true;
 	if (isFirstGet) url = "https://graph.facebook.com/v2.10/"
-							+curPage
+							+ curPage
 							+"?access_token="+atob(encodeToken)
-							+"&fields=posts{message"
-											+",link"
+							+"&fields=posts.limit("+limit+"){message"
+											+",permalink_url"
 											+",picture" //to load fast first
 											+",full_picture"
 											+",likes.summary(true).limit(0)"
@@ -86,10 +87,7 @@ function createVideo(url) {
 function createPost(data) {
 	var wrap = $("<div/>").addClass("post")
 							.attr("id", data.id);
-	var wrap_link = $("<a/>")
-						// .attr("href", data.link)
-						.attr("target","_blank")
-						.attr("title", data.link)
+	var wrap_link = $("<div/>")
 						.appendTo(wrap);
 	var picture_wrap = $("<div/>").addClass("post-img")
 								.appendTo(wrap_link);
@@ -107,41 +105,56 @@ function createPost(data) {
 	}
 
 
-	var social = $("<div/>").addClass("post-social")
-							.appendTo(wrap_link);
+	var social = $("<a/>")
+						.attr("target","_blank")
+						.attr("title", data.permalink_url)
+						.attr("href", data.permalink_url)
+						.addClass("post-social")
+						.appendTo(wrap_link);
+
 	var likes = $("<div/>").addClass("post-social-likes")
 							.html(data.likes.summary.total_count)
 							.appendTo(social);
+
 	let share_count = 0;
 	if (data.shares) share_count = data.shares.count;
 	var shares = $("<div/>").addClass("post-social-shares")
 							.html(share_count)
 							.appendTo(social);
 
-	var message = $("<div/>").addClass("post-mes")
-							.appendTo(wrap_link);
+	var message = $("<div/>")
+						.addClass("post-mes")
+						.appendTo(wrap_link);
 	if (data.message)
 		data.message.split("\n").forEach((val)=>{
-			$("<p/>").text(val).appendTo(message);
+			var ins_reg = /(@(.*))|(instagram.com\/(.*))/gi;
+			var url_reg = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/gi;
+			
+			if (val.match(url_reg))
+				val = val.replace(url_reg, 
+				"<a href=\"$&\" title=\"$&\" target=\"_blank\">$&</a>");
+			else if (val.match(ins_reg))
+				val = val.replace(ins_reg, 
+				"<a href=\"https://www.instagram.com/$2$4\" title=\"$&\" target=\"_blank\">$&</a>");
+			
+			
+			$("<p/>").html(val).appendTo(message);
 		});
 	
 	return wrap;
 }
 
-async function loadPost() {
+async function loadPost(where) {
 	doStatus("hide");
 
 	console.log("getting posts");
-	postData = await getPostFromPage("undefined");
+	postData = await getPostFromPage(where);
 	console.log("	posts got");
 
 	postData.data.forEach((data)=>{
 		var p = createPost(data);
 		$("#content").append(p);
 	});
-	///
-	$.getScript("https://cdn.jsdelivr.net/npm/afterglowplayer@1.x");
-
 	doStatus("show");
 }
 
@@ -152,19 +165,21 @@ $(document).one("DOMContentLoaded", async()=> {
 	console.log("getting token");
 	encodeToken = await getToken();
 	console.log("	token got");
-	await loadPost();
+	await loadPost("undefined");
 });
 
 $("#see-more").click(async()=>{
-	doStatus("hide");
+	// doStatus("hide");
 
-	postData = await getPostFromPage(postData.paging.next);
-	postData.data.forEach((data)=>{
-		var p = createPost(data);
-		$("#content").append(p);
-	});
+	// postData = await getPostFromPage(postData.paging.next);
+	// postData.data.forEach((data)=>{
+	// 	var p = createPost(data);
+	// 	$("#content").append(p);
+	// });
 
-	doStatus("show");
+	// doStatus("show");
+
+	loadPost(postData.paging.next);
 });
 
 function doStatus(statement) {
@@ -189,6 +204,16 @@ $(window).scroll(function() {
 	}
 	lastScrollTop = cur_scrollTop;
 });
+$(window).scroll(function() {
+    if (!isLoaded 
+        && $(window).scrollTop()+$(window).height() >= $(document).height()-10)
+    {
+    	isLoaded = true;
+    	loadPost(postData.paging.next).then(function() {
+    		isLoaded = false;
+    	});
+    }
+ });
 
 async function createPageTabToNavbar() {
 	var navbar = $("#navbar")
@@ -199,10 +224,13 @@ async function createPageTabToNavbar() {
 	});
 
 	$(".page-tab").click(async function(){
+		if (isLoaded) return;
+		isLoaded = true;
 		$(".page-tab").removeClass("page-tab-choose");
 		$(this).addClass("page-tab-choose");
-		$("#content").children().remove();
+		$("#content").html("");
 		curPage = $(this).html();
-		await loadPost();
+		await loadPost("undefined");
+		isLoaded = false;
 	});
 }
