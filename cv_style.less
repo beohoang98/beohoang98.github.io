@@ -5,7 +5,12 @@
 @primaryColor: #c44;
 @secondaryColor: #ddd;
 @textColor0: #000;
-@textColor1: #ddd;
+@textColor1: #fff;
+
+@infoNameBorderX: 17px;
+@infoNameBorderY: 27px;
+
+@scrollWidth: 10px;
 
 * {
 	box-sizing: border-box;
@@ -13,11 +18,12 @@
 
 body {
 	margin: 0;
+	// padding-right: @scrollWidth;
 	font-size: 18px;
 	font-family: @fontSans;
 	background-color: @secondaryColor;
 	color: @textColor0;
-	width: 100vw;
+	// width: 100vw;
 }
 
 #navbar {
@@ -102,18 +108,16 @@ body {
 #content {
 	text-align: left;
 	width: 1000px;
-	margin: 300px auto 0 auto;
-	background-color: #fff;
+	margin: 0 auto;
+	margin-top: 300px;
 	z-index: 1;
-	box-shadow: 0px 0px 15px rgba(0,0,0,.5);
 }
 
 .info {
 	position: relative;
 	margin: 1em 0;
 	&-name {
-		position: absolute;
-		width: 1000px;
+		// width: 100%;
 		height: 2em;
 		line-height: 2em;
 		background-color: @primaryColor/2;
@@ -121,9 +125,28 @@ body {
 		padding-left: 1em;
 		font-size: 1.5em;
 		font-family: @fontSerif;
-		&-fixed {
-			position: fixed;
-			top: 0;
+		box-shadow: 0px 10px 20px -8px rgba(0, 0, 0, 0.7);
+		&:before, &:after {
+			content: "";
+			position: absolute;
+			box-sizing: border-box;
+			width: @infoNameBorderX;
+			height: @infoNameBorderY;
+			border: 0 solid transparent;
+			top: 100%;
+			overflow: hidden;
+			
+			left: 0;
+			border-width: 0 @infoNameBorderX @infoNameBorderY 0;
+			border-left-color: transparent;
+			border-right-color: @primaryColor/4;
+		}
+		&:after {
+			left: inherit;
+			right: 0;
+			border-width: 0 0 @infoNameBorderY @infoNameBorderX;
+			border-right-color: transparent;
+			border-left-color: @primaryColor/4;
 		}
 	}
 	&-content {
@@ -133,8 +156,10 @@ body {
 		font-family: @fontSans;
 		display: flex;
 		flex-flow: wrap;
+		background: #fff;
+		margin: 0 @infoNameBorderX;
 
-		min-height: 60vh;
+		min-height: 50vh;
 		> * {
 			margin: auto;
 		}
@@ -158,12 +183,12 @@ body {
 }
 
 @media only screen and (max-width: 1000px) {
-	#content, .info-name {
+	#content {
 		width: 768px;
 	}
 }
 @media (max-width: 768px) {
-	#content, .info-name {
+	#content {
 		width: 100%;
 	}
 	.basic-info .float {
@@ -173,7 +198,7 @@ body {
 		font-size: 1em;
 	}
 	.info-content {
-		min-height: 100vh;
+		min-height: 60vh;
 	}
 }
 
@@ -204,4 +229,38 @@ body {
 	&-personal {
 		background-image: url("image/personal_icon.png");
 	}
+}
+
+::-webkit-scrollbar {
+	width: @scrollWidth;
+	height: @scrollWidth;
+	background: transparent;
+	&-corner {
+		background: transparent;
+	}
+}
+::-webkit-scrollbar-track {
+	display: none;
+}
+::-webkit-scrollbar-thumb:vertical {
+	background: linear-gradient(
+	                to top, 
+	                (@primaryColor) 9%, 
+	                (@primaryColor/2) 50%,
+	                (@primaryColor) 91%);
+	border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:horizontal {
+	background: linear-gradient(
+	                to left, 
+	                (@primaryColor) 9%, 
+	                (@primaryColor/2) 50%,
+	                (@primaryColor) 91%);
+	border-radius: 5px;
+}
+
+.sticky {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
 }
