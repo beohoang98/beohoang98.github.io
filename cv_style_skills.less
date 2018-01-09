@@ -1,9 +1,4 @@
-@fontSans: "Roboto", sans-serif;
-@fontSerif: "Lora", serif;
-@primaryColor: #c44;
-@secondaryColor: #ccc;
-@textColor0: #000;
-@textColor1: #ddd;
+@import "cv_color.less";
 
 .info-name {
 	z-index: 2;
@@ -18,12 +13,12 @@
 .skill {
 	position: relative;
 	margin: 1em;
-	width: 200px;
-	height: 200px;
+	width: 250px;
+	height: 250px;
 	text-align: center;
 	svg {
-		width: 200px;
-		height: 200px;
+		width: 250px;
+		height: 250px;
 		z-index: 0;
 		circle {
 			fill: transparent;
@@ -32,17 +27,17 @@
 			transform: rotate(-90deg);
 		}
 		.circle-0 {
-			stroke: @secondaryColor;
+			stroke: @accent02;
 		}
 		.circle-1 {
-			stroke: @primaryColor;
+			stroke: @accent05;
 		}
 	}
 	&-diem {
 		span {
 			font-size: 45px;
 			font-weight: bold;
-			color: @primaryColor;
+			color: @accent01;
 		}
 	}
 	> div {

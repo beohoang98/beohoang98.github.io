@@ -14,7 +14,6 @@ let oldDocScroll = 0;
 // 	});
 // });
 
-
 $(document).ready(function() {
 	$(".project").each(function() {
 		let url=$(this).attr("pic");
