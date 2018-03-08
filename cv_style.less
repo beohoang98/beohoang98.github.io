@@ -144,7 +144,7 @@ body {
 			border: 0 solid transparent;
 			top: 100%;
 			overflow: hidden;
-			
+
 			left: 0;
 			border-width: 0 @infoNameBorderX @infoNameBorderY 0;
 			border-left-color: transparent;
@@ -164,9 +164,10 @@ body {
 		text-align: justify;
 		font-family: @fontSans;
 		display: flex;
-		flex-flow: wrap;
+		flex-flow: row wrap;
 		background: @accent04;
 		margin: 0 @infoNameBorderX;
+		text-align: justify;
 
 		min-height: 80vh;
 		> * {
@@ -182,12 +183,13 @@ body {
 }
 
 #about {
-	p:first-letter {
+	p:first-child:first-letter {
 		font-family: @fontSerif;
 		font-size: 2em;
 	}
 	p {
-		text-indent: 2em;
+		text-indent: 1.5em;
+		line-height: 1.5;
 	}
 }
 
@@ -256,16 +258,16 @@ body {
 }
 ::-webkit-scrollbar-thumb:vertical {
 	background: linear-gradient(
-	                to top, 
-	                (@accent01) 9%, 
+	                to top,
+	                (@accent01) 9%,
 	                (@accent05) 50%,
 	                (@accent01) 91%);
 	border-radius: 5px;
 }
 ::-webkit-scrollbar-thumb:horizontal {
 	background: linear-gradient(
-	                to left, 
-	                (@accent01) 9%, 
+	                to left,
+	                (@accent01) 9%,
 	                (@accent05) 50%,
 	                (@accent01) 91%);
 	border-radius: 5px;
