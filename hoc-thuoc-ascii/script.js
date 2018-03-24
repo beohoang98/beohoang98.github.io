@@ -54,7 +54,7 @@ function createNewQuestion() {
 
 	awID = Math.floor(Math.random()*4);
 	ques = choose[awID];
-	$("#question").html("Decimal of <span>"+ answer[ques] + "</span>");
+	$("#question").html("ASCII of <span>"+ answer[ques] + "</span>");
 
 	for (let i = 0; i < 4; ++i) {
 		$("#aw"+i).text(choose[i]);
@@ -67,7 +67,7 @@ function createNewQuestion() {
 
 function nextQues() {
 	$(".middle").fadeOut(500, ()=>{
-		$("#next").text("Press space or click here to Next");
+		$("#next div").text("Next");
 		createNewQuestion();
 		$("#header-content").text("");
 		$(".middle").fadeIn(500);

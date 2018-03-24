@@ -118,6 +118,14 @@ ul li {
 .button:active {
 	transform: translateY(15px);
 }
+.next:after {
+	content: "(Space)";
+	text-align: center;
+	display: block;
+	font-size: 0.75em;
+	color: #333;
+}
+
 .block:hover {
 	cursor: not-allowed;
 	color: inherit;
@@ -132,4 +140,16 @@ ul li {
 .fadeOut {
 	transition: 0.5s;
 	opacity: 0;
+}
+
+@media (max-width: 500px) {
+	#next:after {
+		display: none;
+	}
+	.button:hover {
+		background: transparent;
+	}
+	.fail:hover, .u-correct:hover {
+		background: var(--ucolor);
+	}
 }
