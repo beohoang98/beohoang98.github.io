@@ -1,4 +1,5 @@
-$(".middle").hide();
+$(document).ready(()=>{
+	$(".middle").hide();
 
 let choose = [0, 0, 0, 0];
 let ques;
@@ -73,3 +74,5 @@ function nextQues() {
 		$(".middle").fadeIn(500);
 	});
 }
+});
+
