@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>RANDOM WORD</title>
+	<style type="text/css">
+		:root {
+			--pmcolor: #ae0001;
+			--pmdowncolor: #740001;
+			--secolor: #eeba30;
+			--sedowncolor: #d3a625;
+			--pmtxt: #ddd;
+			--setxt: #000;
+		}
+		body {
+			margin: 0;
+			display: flex;
+			flex-flow: row wrap;
+			width: 100vw;
+			height: 100vh;
+			background-color: var(--secolor);
+			background-image: radial-gradient(var(--secolor), var(--sedowncolor));
+			text-align: center;
+			font-family: sans-serif;
+			font-size: 18px;
+		}
+		.container > * {
+			margin: 1em;
+		}
+		.container {
+			margin: auto;
+			width: 300px;
+		}
+		button {
+			color: var(--pmtxt);
+			background-color: var(--pmcolor);
+			border: none;
+			border-radius: 10px;
+			padding: 1em;
+			transition: 0.2s;
+			font-weight: bold;
+		}
+		button:active {
+			background-color: var(--pmdowncolor);
+			transform: translateY(10px);
+		}
+		#word {
+			color: var(--setxt);
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div id="ten-chu-de"></div>
+		<h1 id="word">RANDOM WORD</h1>
+		<div id="goi-y"></div>
+		<button id="new-word">START</button>
+	</div>
+	
+	<script defer type="text/javascript">
+		let dataWord = [];
+
+		function getRandomWord() {
+			let random_chude = Math.floor(Math.random()*dataWord.length);
+			let chudeObj = dataWord[random_chude];
+
+			let random_word = Math.floor(Math.random()*chudeObj.list.length);
+			
+			let word = chudeObj.list[random_word].word;
+			let chude = chudeObj.name;
+			let goi_y = chudeObj.list[random_word].goi_y;
+
+			return {
+				"name": chude,
+				"word": word,
+				"goi_y": goi_y
+			}
+		}
+
+		async function getDataWord() {
+			let res = await fetch("./words.dat");
+			let txt = await res.text();
+
+			let name_array = txt.match(/<(\w+)>[\r\n]?/g);
+
+			let buffer = txt.split(/<\w+>[\r\n]?/);
+			buffer.splice(0,1);
+			// console.log(buffer);
+
+			for (let id in buffer) {
+				let listRow = buffer[id].split(/[\r\n]?\* [\r\n]?/);
+				let listWord = [];
+				listRow.splice(0,1);
+
+				for (let idrow in listRow) {
+					let word = listRow[idrow].match(/(.*)[\t]+/i)[1];
+					let goi_y = listRow[idrow].match(/[\t](\(.*\))/i)[1];
+
+					listWord[idrow] = {
+						"word":word,
+						"goi_y":goi_y
+					};
+				}
+
+				dataWord[id] = {
+					"name": name_array[id].match(/<(\w+)>/i)[1],
+					"list": listWord
+				}
+			}
+			
+		}
+
+		document.addEventListener("DOMContentLoaded", async()=>{
+			await getDataWord();
+
+			document.querySelector("#new-word").onclick = (e)=>{
+				let $this = e.target;
+				$this.textContent = "NEW WORD";
+
+				let word = getRandomWord();
+				document.querySelector("#ten-chu-de").textContent = word.name;
+				document.querySelector("#word").textContent = word.word;
+				document.querySelector("#goi-y").textContent = word.goi_y;
+			}
+
+			// console.log(dataWord);
+		});
+	</script>
+</body>
+</html>
