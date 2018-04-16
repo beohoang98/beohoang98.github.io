@@ -62,6 +62,8 @@
 		let dataWord = [];
 
 		function getRandomWord() {
+			if (dataWord.length === 0) return;
+
 			let random_chude = Math.floor(Math.random()*dataWord.length);
 			let chudeObj = dataWord[random_chude];
 
@@ -71,11 +73,23 @@
 			let chude = chudeObj.name;
 			let goi_y = chudeObj.list[random_word].goi_y;
 
+			// xoa ra vi da biet roi	
+			(function($this){
+				$this.list.splice(random_word, 1);
+				if ($this.list.length === 0) dataWord.splice(random_chude, 1);
+			})(dataWord[random_chude]);
+
 			return {
 				"name": chude,
 				"word": word,
 				"goi_y": goi_y
 			}
+		}
+
+		function hetWord() {
+			document.querySelector("#ten-chu-de").textContent = "";
+			document.querySelector("#word").textContent = "Hết từ";
+			document.querySelector("#goi-y").textContent = "";
 		}
 
 		async function getDataWord() {

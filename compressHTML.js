@@ -34,10 +34,4 @@ fs.readFile("index.bhtml", 'utf8', (err, data)=>{
 			}
 		});	
 	}
-
-	// console.log(1);
-	// dataCom = dataCom.replace(/[ \t]+/g, ' ');
-	// fs.writeFile("indexCom.html", dataCom, function(err){
-	// 	if (err) console.log(err);
-	// });
 });
