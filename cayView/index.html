@@ -2,25 +2,27 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Cày view 50k</title>
+		<style>
+			body {
+				margin: 0;
+				display: flex;
+				flex-flow: row wrap;
+				justify-content: space-around;
+			}
+			iframe {
+				margin: auto;
+				width: 50%;
+				/* height: auto; */
+			}
+		</style>
 	</head>
 	<body>
-		<iframe width="560" height="315" src="https://www.youtube.com/embed/Xlt1AfyKiWE?rel=0&autoplay=1&loop=1&playlist=Xlt1AfyKiWE" frameborder="0" loop=true allow="autoplay; encrypted-media"></iframe>
-		<iframe width="560" height="315" src="https://www.youtube.com/embed/Xlt1AfyKiWE?rel=0&autoplay=1&loop=1&playlist=Xlt1AfyKiWE" frameborder="0" loop=true allow="autoplay; encrypted-media"></iframe>
-		<iframe width="560" height="315" src="https://www.youtube.com/embed/Xlt1AfyKiWE?rel=0&autoplay=1&loop=1&playlist=Xlt1AfyKiWE" frameborder="0" loop=true allow="autoplay; encrypted-media"></iframe>
-		<iframe width="560" height="315" src="https://www.youtube.com/embed/Xlt1AfyKiWE?rel=0&autoplay=1&loop=1&playlist=Xlt1AfyKiWE" frameborder="0" loop=true allow="autoplay; encrypted-media"></iframe>
-		<iframe width="560" height="315" src="https://www.youtube.com/embed/Xlt1AfyKiWE?rel=0&autoplay=1&loop=1&playlist=Xlt1AfyKiWE" frameborder="0" loop=true allow="autoplay; encrypted-media"></iframe>
-		<iframe width="560" height="315" src="https://www.youtube.com/embed/Xlt1AfyKiWE?rel=0&autoplay=1&loop=1&playlist=Xlt1AfyKiWE" frameborder="0" loop=true allow="autoplay; encrypted-media"></iframe>
-		<iframe width="560" height="315" src="https://www.youtube.com/embed/Xlt1AfyKiWE?rel=0&autoplay=1&loop=1&playlist=Xlt1AfyKiWE" frameborder="0" loop=true allow="autoplay; encrypted-media"></iframe>
-		<iframe width="560" height="315" src="https://www.youtube.com/embed/Xlt1AfyKiWE?rel=0&autoplay=1&loop=1&playlist=Xlt1AfyKiWE" frameborder="0" loop=true allow="autoplay; encrypted-media"></iframe>
-		<iframe width="560" height="315" src="https://www.youtube.com/embed/Xlt1AfyKiWE?rel=0&autoplay=1&loop=1&playlist=Xlt1AfyKiWE" frameborder="0" loop=true allow="autoplay; encrypted-media"></iframe>
-		<iframe width="560" height="315" src="https://www.youtube.com/embed/Xlt1AfyKiWE?rel=0&autoplay=1&loop=1&playlist=Xlt1AfyKiWE" frameborder="0" loop=true allow="autoplay; encrypted-media"></iframe>
-		<iframe width="560" height="315" src="https://www.youtube.com/embed/Xlt1AfyKiWE?rel=0&autoplay=1&loop=1&playlist=Xlt1AfyKiWE" frameborder="0" loop=true allow="autoplay; encrypted-media"></iframe>
-		<iframe width="560" height="315" src="https://www.youtube.com/embed/Xlt1AfyKiWE?rel=0&autoplay=1&loop=1&playlist=Xlt1AfyKiWE" frameborder="0" loop=true allow="autoplay; encrypted-media"></iframe>
-		<iframe width="560" height="315" src="https://www.youtube.com/embed/Xlt1AfyKiWE?rel=0&autoplay=1&loop=1&playlist=Xlt1AfyKiWE" frameborder="0" loop=true allow="autoplay; encrypted-media"></iframe>
-		<iframe width="560" height="315" src="https://www.youtube.com/embed/Xlt1AfyKiWE?rel=0&autoplay=1&loop=1&playlist=Xlt1AfyKiWE" frameborder="0" loop=true allow="autoplay; encrypted-media"></iframe>
-		<iframe width="560" height="315" src="https://www.youtube.com/embed/Xlt1AfyKiWE?rel=0&autoplay=1&loop=1&playlist=Xlt1AfyKiWE" frameborder="0" loop=true allow="autoplay; encrypted-media"></iframe>
-		<iframe width="560" height="315" src="https://www.youtube.com/embed/Xlt1AfyKiWE?rel=0&autoplay=1&loop=1&playlist=Xlt1AfyKiWE" frameborder="0" loop=true allow="autoplay; encrypted-media"></iframe>
-		<iframe width="560" height="315" src="https://www.youtube.com/embed/Xlt1AfyKiWE?rel=0&autoplay=1&loop=1&playlist=Xlt1AfyKiWE" frameborder="0" loop=true allow="autoplay; encrypted-media"></iframe>
-		<iframe width="560" height="315" src="https://www.youtube.com/embed/Xlt1AfyKiWE?rel=0&autoplay=1&loop=1&playlist=Xlt1AfyKiWE" frameborder="0" loop=true allow="autoplay; encrypted-media"></iframe>
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/Xlt1AfyKiWE?rel=0&version=3&enablejsapi=1&autoplay=1&loop=1&playlist=Xlt1AfyKiWE" frameborder="0" loop=true allow="autoplay; encrypted-media"></iframe>
+		<script>
+			for (let i = 0; i < 19; ++i) {
+				let frame = document.querySelector('iframe').cloneNode(true);
+				document.body.appendChild(frame);
+			}
+		</script>
 	</body>
 </html>
