@@ -1,10 +1,15 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Cày view 50k</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Cày view</title>
 		<style>
 			body {
 				margin: 0;
+				background: #000;
+				font-family: sans-serif;
+			}
+			#content {
 				display: flex;
 				flex-flow: row wrap;
 				justify-content: space-around;
@@ -12,16 +17,30 @@
 			iframe {
 				margin: auto;
 				width: 50%;
-				/* height: auto; */
+				height: calc(315 * 50vw / 560);
+
+				min-width: 300px;
+				min-height: 168px;
+			}
+			h1 {
+				font-size: 3em;
+				height: 300px;
+				line-height: 300px;
+				text-align: center;
+				color: #888;
 			}
 		</style>
 	</head>
 	<body>
-		<iframe width="560" height="315" src="https://www.youtube.com/embed/Xlt1AfyKiWE?rel=0&version=3&enablejsapi=1&autoplay=1&loop=1&playlist=Xlt1AfyKiWE" frameborder="0" loop=true allow="autoplay; encrypted-media"></iframe>
+		<h1>20 FRAME</h1>
+		<div id="content">
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/32sYGCOYJUM?rel=0&version=3&enablejsapi=1&autoplay=1&loop=1&playlist=32sYGCOYJUM" frameborder="0" loop=true allow="autoplay; encrypted-media"></iframe>
+		</div>
 		<script>
+			const content = document.querySelector("#content");
 			for (let i = 0; i < 19; ++i) {
 				let frame = document.querySelector('iframe').cloneNode(true);
-				document.body.appendChild(frame);
+				content.appendChild(frame);
 			}
 		</script>
 	</body>
