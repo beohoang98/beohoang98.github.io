@@ -3,7 +3,7 @@ const fsCss = require('fs');
 
 let dataCom;
 
-fs.readFile("index.bhtml", 'utf8', (err, data)=>{
+fs.readFile("_index.html", 'utf8', (err, data)=>{
 	if (err) {
 		console.log(err);
 		return;
