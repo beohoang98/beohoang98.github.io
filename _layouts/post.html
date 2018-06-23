@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<title>{{ site.title }} | {{ page.title }}</title>
+		<link rel="stylesheet" href="/css/post.css">
+	</head>
+	<body>
+		{% include menu.html %}
+		<div class="post-header">
+			<div>
+				<div class="post-title">{{page.title}}</div>
+				<div class="post-date">{{page.date | date_to_string}}</div>
+				<div class="post-author">{{page.author}}</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="post-headimg">
+				<img src="{{page.img}}" alt="header">
+			</div>
+			<div class="post-category">
+				<div>Categories: </div>
+				<ul>
+					{% for tag in page.tags %}
+					<li><a href="/tag/{{tag}}">{{tag}}</a></li>
+					{% endfor %}
+				</ul>
+			</div>
+			<div class="post-content">
+				{{ page.content }}
+			</div>
+		</div>
+		{% include footer.html %}
+	</body>
+</html>

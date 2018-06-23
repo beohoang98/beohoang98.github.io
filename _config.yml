@@ -1,0 +1,17 @@
+title: Noob Coder
+description: Nothing
+repository: beohoang98/beohoang98.github.io
+baseurl: ""
+
+fb_name: beo.hoang395
+github_name: beohoang98
+linkedin_name: an-hoang98
+
+sass:
+  sass_dir: _sass
+  style: compressed
+
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-paginate

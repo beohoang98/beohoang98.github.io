@@ -1,0 +1,16 @@
+<div class="navbar">
+	<div class="navbar-el">
+		<a href="/" class="navbar-name">HOME</a>
+	</div>
+	<div class="navbar-el">
+		<a href='#' class="navbar-name">CATEGORY</a>
+		<div class="navbar-sub">
+			{% for cat in site.categories %}
+			<a href="/{{ cat[0] }}" class="navbar-name">{{ cat[0] }}</a>
+			{% endfor %}
+		</div>
+	</div>
+	<div class="navbar-el">
+		<a href="/myCV/" class="navbar-name">ABOUT</a>
+	</div>
+</div>

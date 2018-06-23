@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.3">Jekyll</generator><link href="http://localhost/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost/" rel="alternate" type="text/html" /><updated>2018-06-23T14:25:40+07:00</updated><id>http://localhost/</id><title type="html">Noob Coder</title><subtitle>Nothing</subtitle><entry><title type="html">Tôi đã download ảnh crush trên facebook như thế nào?</title><link href="http://localhost/coding/2018/06/22/Get-FB-Photo.html" rel="alternate" type="text/html" title="Tôi đã download ảnh crush trên facebook như thế nào?" /><published>2018-06-22T00:00:00+07:00</published><updated>2018-06-22T00:00:00+07:00</updated><id>http://localhost/coding/2018/06/22/Get-FB-Photo</id><content type="html" xml:base="http://localhost/coding/2018/06/22/Get-FB-Photo.html">&lt;h1 id=&quot;lấy-link-ảnh-từ-trang-profile&quot;&gt;LẤY LINK ẢNH TỪ TRANG PROFILE&lt;/h1&gt;
+
+&lt;h2 id=&quot;tìm-vị-trí-link-của-ảnh&quot;&gt;Tìm vị trí link của ảnh&lt;/h2&gt;
+
+&lt;h2 id=&quot;viết-code-js-để-chạy-auto-lấy-link&quot;&gt;Viết code JS để chạy auto lấy link&lt;/h2&gt;
+
+&lt;h2 id=&quot;download-về&quot;&gt;Download về&lt;/h2&gt;
+
+&lt;h1 id=&quot;download-ảnh-từ-danh-sách-link&quot;&gt;DOWNLOAD ẢNH TỪ DANH SÁCH LINK&lt;/h1&gt;
+
+&lt;h2 id=&quot;sử-dụng-ngôn-ngữ-php&quot;&gt;Sử dụng ngôn ngữ PHP&lt;/h2&gt;
+
+&lt;h2 id=&quot;cách-cắt-ra-từng-link-một&quot;&gt;Cách cắt ra từng link một&lt;/h2&gt;
+
+&lt;h2 id=&quot;sử-dụng-thư-viện-curl&quot;&gt;Sử dụng thư viện cURL&lt;/h2&gt;
+
+&lt;h2 id=&quot;chạy&quot;&gt;Chạy&lt;/h2&gt;</content><author><name>BeoHoang</name></author><category term="javascript" /><category term="php" /><category term="hack-stuff" /><summary type="html">LẤY LINK ẢNH TỪ TRANG PROFILE</summary></entry></feed>

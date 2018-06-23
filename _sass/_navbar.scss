@@ -1,0 +1,76 @@
+$nav-height : 50px;
+@mixin nav-shadow() {
+	box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
+}
+
+.navbar {
+	display: table;
+	width: 100%;
+	height: $nav-height;
+
+	position: sticky;
+	position: -webkit-sticky;
+	top: 0;
+	z-index: 9999;
+	@include nav-shadow();
+	
+
+	& &-el {
+		position: relative;
+		display: table-cell;
+		text-align: center;
+
+		&:hover {
+			.navbar-sub {
+				visibility: visible;
+				opacity: 1;
+			}
+		}
+	}
+
+	&-el &-sub {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		width: 100%;
+
+		visibility: hidden;
+		opacity: 0;
+		transition: 0.2s;
+
+		@include nav-shadow();
+	}
+
+	& &-name {
+		display: block;
+		text-decoration: none;
+		
+		width: 100%;
+		height: $nav-height;
+		line-height: $nav-height;
+
+		transition: 0.3s;
+
+		background: var(--light);
+		color: var(--text-dark);
+
+		&:hover {
+			background: var(--dark);
+			color: var(--text-light);
+		}
+
+		&:visited {
+			all: uset;
+		}
+	}
+}
+
+.footer {
+	min-height: 200px;
+	display: flex;
+	align-items:center;
+	justify-content: center;
+	
+	background: var(--light);
+	color: var(--text-dark);
+}
