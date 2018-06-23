@@ -8,4 +8,9 @@
 	--text-fade: #888;
 }
 
-@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+@import url('https://fonts.googleapis.com/css?family=Cabin');
+@import url('https://fonts.googleapis.com/css?family=Fira+Mono');
+
+code {
+	font-family: 'Fira Mono', consolas, monospace;
+}

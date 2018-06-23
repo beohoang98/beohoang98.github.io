@@ -15,7 +15,7 @@ body {
 	}
 }
 
-[class='col-*'] {
+[class*='col-'] {
 	float: left;
 	padding: 5px;
 }
@@ -53,4 +53,8 @@ body {
 	@media screen and (max-width: 320px) {
 		width: 100%;
 	}
+}
+
+.res-img {
+	width: 100%
 }

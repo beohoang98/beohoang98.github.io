@@ -7,6 +7,7 @@ $nav-height : 50px;
 	display: table;
 	width: 100%;
 	height: $nav-height;
+	table-layout: fixed;
 
 	position: sticky;
 	position: -webkit-sticky;
@@ -44,6 +45,7 @@ $nav-height : 50px;
 	& &-name {
 		display: block;
 		text-decoration: none;
+		font-weight: bold;
 		
 		width: 100%;
 		height: $nav-height;
@@ -73,4 +75,31 @@ $nav-height : 50px;
 	
 	background: var(--light);
 	color: var(--text-dark);
+
+	li {
+		list-style: none;
+		margin: 1em;
+	}
+
+	ul {
+		padding: 0;
+		width: 300px;
+
+		display: flex;
+		flex-flow: row;
+		justify-content: space-around;
+	}
+
+	a {
+		display: block;
+		text-decoration: none;
+		color: var(--text-dark);
+		font-size: 3em;
+		transform-origin: center;
+		transition: 0.4s;
+
+		&:hover {
+			transform: scale(1.2);
+		}
+	}
 }

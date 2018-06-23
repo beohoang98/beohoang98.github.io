@@ -1,12 +1,25 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="/assets/css/style.css">
+		<meta name="viewport" content="width=device-width">
+		<title>{{site.title}}</title>
+		<link rel="stylesheet" href="/css/home.css">
+		{% include fontawesome.html %}
 	</head>
 	<body>
-		<h1>{{ site.title }}</h1>
+		<div class="home-header">
+			<div>
+				<h1 href="#">{{site.title}}</h1>
+				<p>Normal guy</p>
+				<p>Web Developer trong tương lai</p>
+				<p>Tò mò công nghệ</p>
+				<p>Thích sự đơn giản</p>
+			</div>
+		</div>
+		{% include menu.html %}
 		<div class="container">
 			{{content}}
 		</div>
+		{% include footer.html %}
 	</body>
 </html>

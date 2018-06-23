@@ -1,0 +1,73 @@
+---
+---
+@import "_color";
+@import "_responsive";
+@import "_navbar";
+
+body {
+	font-family: 'Cabin', sans-serif;
+	background: var(--grey);
+}
+
+.container {
+	min-height: 100vh;
+	background: #fff;
+}
+
+.home {
+	&-header {
+		height: 300px;
+		background: var(--dark);
+		background: linear-gradient(to right, var(--dark), var(--grey), var(--dark));
+
+		color: var(--text-light);
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		h1 {
+			font-size: 4rem;
+			margin: 0;
+		}
+		p {
+			margin: 2px;
+			text-align: center;
+			font-size: 1.25em;
+		}
+	}
+
+	&-post {
+		text-decoration: none;
+		color: inherit;
+
+		&-title {
+			font-size: 1.5em;
+		}
+		&-date, &-author {
+			color: var(--text-fade);
+		}
+		&-category {
+			display: flex;
+			flex-flow: row;
+			li {
+				margin: 5px;
+				list-style: none;
+				padding: 5px 10px;
+				background: var(--grey);
+				color: var(--text-light);
+			}
+		}
+
+		&-img {
+			max-height: 200px;
+			overflow: hidden;
+		}
+	}
+}
+
+.category-details {
+	&.hide {
+		display: none;
+	}
+}

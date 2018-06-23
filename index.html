@@ -1,11 +1,26 @@
 ---
-layout: default
+layout: home
 ---
 
 {% for post in site.posts %}
-<a href="{{ post.url }}">
-	<h2>{{ post.title }}</h2>
-	<p>{{ post.date | date_to_string }}</p>
+<a href="{{ post.url }}" class='home-post'>
+	<div class="row">
+		<div class="col-4">
+			<div class="home-post-img">
+				<img class='res-img' src="{{post.img}}" alt="">
+			</div>
+		</div>
+		<div class="col-8">
+			<div class='home-post-title'>{{ post.title }}</div>
+			<div class='home-post-date'>{{ post.date | date_to_string }}</div>
+			<div class="home-post-author">{{ post.author }}</div>
+			<div class="home-post-category">
+				{% for cat in post.categories %}
+				<li>{{cat}}</li>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
 </a>
 {% endfor %}
 
