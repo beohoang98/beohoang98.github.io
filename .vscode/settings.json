@@ -1,6 +1,3 @@
 {
-	"markdown.previewFrontMatter": "show",
-	"files.associations": {
-		"*.html":"liquid"
-	}
+	"markdown.previewFrontMatter": "show"
 }

@@ -1,16 +1,16 @@
 ---
-permalink: api/postByCat
+permalink: api/postByTag
 ---
 {% capture json %}{
-{% for cat in site.categories %}
-"{{cat[0] | downcase}}":[
-{% for post in cat[1] %}
+{% for tag in site.tags %}
+"{{tag[0] | downcase}}":[
+{% for post in tag[1] %}
 {"title":"{{post.title}}",
 "url":"{{post.url}}",
 "img":"{{post.img}}",
 "date":"{{post.date}}",
 "author":"{{post.author}}",
-"summary":"{{ post.content | strip_html | truncatewords: 50 }}"
+"summary":"{{post.content | strip_html | truncatewords: 50}}"
 },{% endfor %}null
 ],
 {% endfor %}null

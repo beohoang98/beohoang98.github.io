@@ -23,6 +23,7 @@ $nav-height : 50px;
 
 		&:hover, &:active {
 			.navbar-sub {
+				transition: 0.2s;
 				visibility: visible;
 				opacity: 1;
 			}
@@ -37,7 +38,6 @@ $nav-height : 50px;
 
 		visibility: hidden;
 		opacity: 0;
-		transition: 0.2s;
 
 		@include nav-shadow();
 	}
@@ -70,7 +70,7 @@ $nav-height : 50px;
 .footer {
 	min-height: 200px;
 	display: flex;
-	align-items:center;
+	align-items: center;
 	justify-content: center;
 	
 	background: var(--light);
@@ -84,13 +84,14 @@ $nav-height : 50px;
 	ul {
 		padding: 0;
 		width: 300px;
+		margin: 1em auto;
 
 		display: flex;
 		flex-flow: row;
 		justify-content: space-around;
 	}
 
-	a {
+	.social a {
 		display: block;
 		text-decoration: none;
 		color: var(--text-dark);
@@ -101,5 +102,9 @@ $nav-height : 50px;
 		&:hover {
 			transform: scale(1.2);
 		}
+	}
+
+	p, a, div {
+		text-align: center;
 	}
 }

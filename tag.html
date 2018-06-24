@@ -1,45 +1,49 @@
 ---
 layout: home
-permalink: /category
+permalink: /tag
 ---
 <style>
-	.category-list {
+	.tag-list {
 		padding-left: 1em;
 	}
-	#category-name {
+	#tag-name {
 		padding: 5px 0.5em;
 		background: var(--dark);
 		color: var(--text-light);
 		border-radius: 5px;
 	}
 </style>
-<h1>CATEGORY: <span id='category-name'></span></h1>
-<div class="category-list">
+<h1>TAG: <span id='tag-name'></span></h1>
+<div class="tag-list">
 
 </div>
 <script>
-	const path = document.location.pathname.match(/category\/(.*)\/?$/i);
-	let cat_name = "";
+	const path = document.location.pathname.match(/tag\/(.*)\/?$/i);
+	let tagname = "";
 
-	if (!path) cat_name = "None";
-	else cat_name = path[1];
-	
-	$('#category-name').text(cat_name);
+	if (!path) {
+		$('#tag-name').remove();
+		tagname = null;
+	}
+	else {
+		tagname = path[1];
+		$('#tag-name').text(tagname);
+	}
 
 	document.addEventListener('DOMContentLoaded', async()=>{
-		const listDiv = $('.category-list');
+		const listDiv = $('.tag-list');
 
-		const res = await fetch('/api/postByCat');
+		const res = await fetch('/api/postByTag');
 		const json = await res.json().catch(err=>{
 			console.log(err);
 			json = [];
 		});
 		const data = json;
-		if (!data.hasOwnProperty(cat_name)) {
+		if (!data.hasOwnProperty(tagname)) {
 			return;
 		}
 		
-		for (const post of data[cat_name])
+		for (const post of data[tagname])
 		{
 			const postDiv = createPostDiv(post);
 			listDiv.append(postDiv);

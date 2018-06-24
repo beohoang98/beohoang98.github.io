@@ -94,7 +94,7 @@ body {
 		}
 	}
 
-	&-category {
+	&-category, &-tag {
 		ul {
 			padding: 0;
 		}
@@ -103,10 +103,11 @@ body {
 			list-style: none;
 		}
 		a {
-			padding: 1em;
+			padding: 5px 0.5em;
+			border-radius: 5px;
 			text-decoration: none;
 			color: var(--text-light);
-			background: var(--grey);
+			background: var(--dark);
 		}
 	}
 }

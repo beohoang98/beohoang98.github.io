@@ -2,7 +2,7 @@
 layout: post
 title: Tôi đã download ảnh crush trên facebook như thế nào?
 categories: Web
-tags: javascript php
+tags: javascript php inspect
 author: BeoHoang
 img: /images/getFBPhoto.png
 ---
