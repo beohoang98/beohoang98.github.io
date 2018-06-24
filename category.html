@@ -1,6 +1,6 @@
 ---
 layout: home
-permalink: /category
+permalink: /category/index.html
 ---
 <style>
 	.category-list {
@@ -18,11 +18,11 @@ permalink: /category
 
 </div>
 <script>
-	const path = document.location.pathname.match(/category\/(.*)\/?$/i);
+	const path = new URL(document.location.toString()).searchParams.get('name');
 	let cat_name = "";
 
 	if (!path) cat_name = "None";
-	else cat_name = path[1];
+	else cat_name = path;
 	
 	$('#category-name').text(cat_name);
 

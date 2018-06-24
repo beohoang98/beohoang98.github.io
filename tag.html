@@ -1,6 +1,6 @@
 ---
 layout: home
-permalink: /tag
+permalink: /tag/index.html
 ---
 <style>
 	.tag-list {
@@ -18,7 +18,7 @@ permalink: /tag
 
 </div>
 <script>
-	const path = document.location.pathname.match(/tag\/(.*)\/?$/i);
+	const path = new URL(document.location.toString()).searchParams.get('name');
 	let tagname = "";
 
 	if (!path) {
@@ -26,7 +26,7 @@ permalink: /tag
 		tagname = null;
 	}
 	else {
-		tagname = path[1];
+		tagname = path;
 		$('#tag-name').text(tagname);
 	}
 
