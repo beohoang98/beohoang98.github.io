@@ -6,7 +6,7 @@
 		<a class="navbar-name">CATEGORIES</a>
 		<div class="navbar-sub">
 			{% for cat in site.categories %}
-			<a href="/category/{{ cat[0] | downcase }}" class="navbar-name">{{ cat[0] }}</a>
+			<a href="/category?name={{ cat[0] | downcase }}" class="navbar-name">{{ cat[0] }}</a>
 			{% endfor %}
 		</div>
 	</div>
