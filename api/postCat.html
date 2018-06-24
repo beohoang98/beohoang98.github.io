@@ -1,0 +1,18 @@
+---
+permalink: api/postByCat
+---
+{% capture json %}{
+{% for cat in site.categories %}
+"{{cat[0] | downcase}}":[
+{% for post in cat[1] %}
+{"title":"{{post.title}}",
+"url":"{{post.url}}",
+"img":"{{post.img}}",
+"date":"{{post.date}}",
+"author":"{{post.author}}",
+"summary":"{{ post.content | strip_html | truncatewords: 50 }}"
+},{% endfor %}null
+],
+{% endfor %}null
+}{% endcapture %}
+{{ json | strip_newlines | remove: ",null" }}

@@ -40,9 +40,25 @@ body {
 	&-post {
 		text-decoration: none;
 		color: inherit;
+		margin-bottom: 1em;
+		padding-bottom: 0.5em;
+		border-bottom: 2px solid var(--light); 
+
+		display: block;
+
+		&:nth-child(2n) {
+			text-align: right;
+			.col-4 {
+				float: right;
+			}
+			.home-post-category {
+				flex-flow: row-reverse;
+			}
+		}
 
 		&-title {
 			font-size: 1.5em;
+			font-weight: bold;
 		}
 		&-date, &-author {
 			color: var(--text-fade);
@@ -58,10 +74,18 @@ body {
 				color: var(--text-light);
 			}
 		}
+		
+		&-summary {
+			margin-top: 5px;
+		}
 
 		&-img {
+			height: 100%;
 			max-height: 200px;
 			overflow: hidden;
+
+			align-items: center;
+			display: flex;
 		}
 	}
 }

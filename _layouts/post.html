@@ -6,6 +6,8 @@
 		<link rel="stylesheet" href="/css/monokai.css">
 		<link rel="stylesheet" href="/css/post.css">
 		{% include fontawesome.html %}
+
+		<script src="/static/jquery/jquery-3.3.1.min.js"></script>
 	</head>
 	<body>
 		{% include menu.html %}
@@ -20,8 +22,8 @@
 			<div class="post-headimg">
 				<img src="{{page.img}}" alt="header">
 			</div>
-			<div class="post-category">
-				<div>Categories: </div>
+			<div class="post-tag">
+				<div>Tags: </div>
 				<ul>
 					{% for tag in page.tags %}
 					<li><a href="/tag/{{tag}}">{{tag}}</a></li>
@@ -33,8 +35,11 @@
 			</div>
 		</div>
 		{% include footer.html %}
+		{% include go_head.html %}
+		{% include status-bar.html %}
 
 		<!-- script -->
 		{% include zoom_img_script.html %}
+		<script src="/script/statusBar.js"></script>
 	</body>
 </html>
