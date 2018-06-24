@@ -1,0 +1,21 @@
+---
+permalink: api/post
+---
+{% capture json %}
+{
+{% for cat in site.categories %}
+	"{{cat[0]}}" : [
+		{% for post in cat[1] %}
+		{
+			"title" : "{{post.title}}",
+			"url" : "{{post.url}}",
+			"img" : "{{post.img}}"
+		},
+		{% endfor %}
+		null
+	],
+{% endfor %}
+	null:null
+}
+{% endcapture %}
+{{ json | strip }}

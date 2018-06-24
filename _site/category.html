@@ -27,94 +27,36 @@
 		<a class="navbar-name">CATEGORY</a>
 		<div class="navbar-sub">
 			
-			<a href="/category/Web" class="navbar-name">Web</a>
-			
-			<a href="/category/asd" class="navbar-name">asd</a>
-			
-			<a href="/category/C-C++" class="navbar-name">C-C++</a>
+			<a href="/category/web" class="navbar-name">Web</a>
 			
 		</div>
 	</div>
 </div>
 		<div class="container">
-			
-	<details class="category-details" data="Web">
-		<summary>Web | 1 posts</summary>
-		
-		<a href="/web/2018/06/22/Get-FB-Photo.html" class='home-post'>
-			<div class="row">
-				<div class="col-4">
-					<div class="home-post-img">
-						<img class='res-img' src="/images/getFBPhoto.png" alt="">
-					</div>
-				</div>
-				<div class="col-8">
-					<div class='home-post-title'>Tôi đã download ảnh crush trên facebook như thế nào?</div>
-					<div class='home-post-date'>22 Jun 2018</div>
-					<div class="home-post-author">BeoHoang</div>
-					<div class="home-post-category">
-						
-						<li>Web</li>
-						
-					</div>
-				</div>
-			</div>
-		</a>
-		
-	</details>
+			<div class="category-list">
 
-	<details class="category-details" data="asd">
-		<summary>asd | 1 posts</summary>
-		
-		<a href="/asd/2018/06/23/test-asd-category.html" class='home-post'>
-			<div class="row">
-				<div class="col-4">
-					<div class="home-post-img">
-						<img class='res-img' src="" alt="">
-					</div>
-				</div>
-				<div class="col-8">
-					<div class='home-post-title'>Test ASD category</div>
-					<div class='home-post-date'>23 Jun 2018</div>
-					<div class="home-post-author"></div>
-					<div class="home-post-category">
-						
-						<li>asd</li>
-						
-					</div>
-				</div>
-			</div>
-		</a>
-		
-	</details>
+</div>
+<script>
 
-	<details class="category-details" data="C-C++">
-		<summary>C-C++ | 1 posts</summary>
-		
-		<a href="/c-c++/2018/06/23/test-c-category.html" class='home-post'>
-			<div class="row">
-				<div class="col-4">
-					<div class="home-post-img">
-						<img class='res-img' src="" alt="">
-					</div>
-				</div>
-				<div class="col-8">
-					<div class='home-post-title'>Test C++ category</div>
-					<div class='home-post-date'>23 Jun 2018</div>
-					<div class="home-post-author"></div>
-					<div class="home-post-category">
-						
-						<li>C-C++</li>
-						
-					</div>
-				</div>
-			</div>
-		</a>
-		
-	</details>
+	document.addEventListener('DOMContentLoaded', async()=>{
+		const listDiv = document.querySelector('.category-list');
 
+		const res = await fetch('/api/tag');
+		const json = await res.json().catch(err=>{
+			console.log(err);
+			json = [];
+		});
+		const tagData = json;
+		
+		for (const tag of tagData)
+		{
+			let node = document.createElement('p');
+			node.textContent = tag;
+			listDiv.appendChild(node);
+		}
+	});
 
-<script src='/script/categories.js'></script>
+</script>
 		</div>
 		<div class="footer">
 	<ul>

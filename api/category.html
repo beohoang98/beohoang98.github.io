@@ -1,0 +1,8 @@
+---
+permalink: api/category
+---
+{% assign arr = ""|split: "" %}
+{% for tag in site.categories %}
+	{% assign arr = arr | push: tag[0] %}
+{% endfor %}
+{{arr | jsonify}}

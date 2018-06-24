@@ -21,7 +21,7 @@ $nav-height : 50px;
 		display: table-cell;
 		text-align: center;
 
-		&:hover {
+		&:hover, &:active {
 			.navbar-sub {
 				visibility: visible;
 				opacity: 1;
@@ -56,7 +56,7 @@ $nav-height : 50px;
 		background: var(--light);
 		color: var(--text-dark);
 
-		&:hover {
+		&:hover, &:active {
 			background: var(--dark);
 			color: var(--text-light);
 		}

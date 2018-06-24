@@ -1,0 +1,28 @@
+---
+layout: home
+permalink: /category
+---
+<div class="category-list">
+
+</div>
+<script>
+
+	document.addEventListener('DOMContentLoaded', async()=>{
+		const listDiv = document.querySelector('.category-list');
+
+		const res = await fetch('/api/tag');
+		const json = await res.json().catch(err=>{
+			console.log(err);
+			json = [];
+		});
+		const tagData = json;
+		
+		for (const tag of tagData)
+		{
+			let node = document.createElement('p');
+			node.textContent = tag;
+			listDiv.appendChild(node);
+		}
+	});
+
+</script>
