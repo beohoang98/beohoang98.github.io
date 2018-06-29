@@ -2,7 +2,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width">
-		<title>Noob Coder | Test ASD category</title>
+		<title>Noob Coder | Lấy Facebook ID bằng javascript</title>
 		<link rel="stylesheet" href="/css/monokai.css">
 		<link rel="stylesheet" href="/css/post.css">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
@@ -14,41 +14,134 @@
 	<div class="navbar-el">
 		<a href="/" class="navbar-name">HOME</a>
 	</div>
+	<div class="navbar-logo">
+		<i class="fab fa-github"></i>
+	</div>
 	<div class="navbar-el">
 		<a class="navbar-name">CATEGORIES</a>
 		<div class="navbar-sub">
 			
 			<a href="/category?name=web" class="navbar-name">Web</a>
 			
-			<a href="/category?name=asd" class="navbar-name">ASD</a>
-			
 		</div>
 	</div>
 </div>
 		<div class="post-header">
 			<div>
-				<div class="post-title">Test ASD category</div>
-				<div class="post-date">23 Jun 2018</div>
+				<div class="post-title">Lấy Facebook ID bằng javascript</div>
+				<div class="post-date">29 Jun 2018</div>
 				<div class="post-author"></div>
 			</div>
 		</div>
 		<div class="container">
 			<div class="post-headimg">
-				<img src="" alt="header">
+				<img src="/images/getFBID_2.gif" alt="header">
 			</div>
 			<div class="post-tag">
 				<div>Tags: </div>
 				<ul>
 					
-					<li><a href="/tag?name=test">test</a></li>
+					<li><a href="/tag?name=javascript">javascript</a></li>
 					
-					<li><a href="/tag?name=asd">asd</a></li>
+					<li><a href="/tag?name=inspect">inspect</a></li>
+					
+					<li><a href="/tag?name=facebook">facebook</a></li>
+					
+					<li><a href="/tag?name=useless-stuff">useless-stuff</a></li>
 					
 				</ul>
 			</div>
 			<div class="post-content">
-				
+				<h2 id="bước-1">BƯỚC 1:</h2>
 
+<p>Để lấy ID của một user trên facebook, ta phải vào tường nhà (profile page) của user đó trước</p>
+
+<h2 id="bước-2">BƯỚC 2:</h2>
+
+<h3 id="cách-1-gõ-script-javascript-lên-developer-tools">Cách 1: Gõ script javascript lên Developer Tools</h3>
+
+<p>Developer Tools hay còn gọi là Inspect (F12) trên Chrome hay gì đó trên Firefox… nói chung là chỗ để mình gõ script.</p>
+
+<p>Sau đó gõ code sau:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">require</span><span class="p">(</span><span class="s1">'TimelineController'</span><span class="p">).</span><span class="nx">getProfileID</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>Enter, kết quả là:</p>
+
+<p><img src="/images/getFBID_1.jpg" alt="img" /></p>
+
+<h3 id="cách-2-lưu-script-trên-bookmark">Cách 2: Lưu script trên bookmark</h3>
+
+<p>Tạo một bookmark, với đường dẫn (url) là:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">javascript</span><span class="p">:</span><span class="k">void</span> <span class="nx">alert</span><span class="p">(</span><span class="nx">require</span><span class="p">(</span><span class="s1">'TimelineController'</span><span class="p">).</span><span class="nx">getProfileID</span><span class="p">())</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>Giải thích: Browser sẽ mở url đó lên, url có bắt đầu là javascript:void sẽ chạy đoạn script phía sau, tức là đoạn script của cách 1</p>
+</blockquote>
+
+<p>Lưu bookmark đó trên thanh bookmark. <strong>Như vậy</strong>, ta khi ta bấm vào bookmark, trình duyệt sẽ alert một thông báo chứa <strong>facebook ID</strong> của user ta cần tìm.</p>
+
+<p><img src="/images/getFBID_2.gif" alt="img" /></p>
+
+			</div>
+			<div class="post-related">
+				<h1>RELATED POSTS</h1>
+				<div class="post-row-list">
+					<div class="list">
+						
+
+
+	
+	
+		
+		
+		
+		
+		
+			<a href="/web/2018/06/22/Get-FB-Photo.html" class="post">
+				<div class="post-img">
+					<img src="/images/getFBPhoto.png" alt="">
+				</div>
+				<div class="post-title">Tôi đã download ảnh crush trên facebook như thế nào?</div>
+			</a>
+		
+		
+	
+
+	
+	
+
+	
+	
+		
+		
+		
+		
+		
+	
+
+	
+	
+		
+		
+		
+	
+
+	
+	
+		
+		
+		
+	
+
+					</div>
+				</div>
+				<a onclick='relatePrev()' class='prev'>&#10094</a>
+				<a onclick='relateNext()' class='next'>&#10095</a>
+				
 			</div>
 		</div>
 		<div class="footer">
@@ -155,5 +248,30 @@ onclick="javascript:void $('html, body').animate({scrollTop: 0}, 500, 'swing')">
 	}
 </script>
 		<script src="/script/statusBar.js"></script>
+		<script>
+			const relatePost = document.querySelectorAll('.post-related a.post');
+			const length = relatePost.length;
+			let current = 0;
+			const postWidth = $(relatePost[0]).width();
+
+			function scrollToPost()
+			{
+				$('.post-row-list .list').css({
+					transform: 'translateX('+ (-current*postWidth) + 'px)'
+				});
+			}
+
+			function relatePrev()
+			{
+				if (current > 0) --current;
+				scrollToPost();
+			}
+
+			function relateNext()
+			{
+				if (current < length-1) ++current;
+				scrollToPost();
+			}
+		</script>
 	</body>
 </html>

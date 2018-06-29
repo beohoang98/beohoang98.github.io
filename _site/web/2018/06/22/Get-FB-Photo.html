@@ -14,13 +14,14 @@
 	<div class="navbar-el">
 		<a href="/" class="navbar-name">HOME</a>
 	</div>
+	<div class="navbar-logo">
+		<i class="fab fa-github"></i>
+	</div>
 	<div class="navbar-el">
 		<a class="navbar-name">CATEGORIES</a>
 		<div class="navbar-sub">
 			
 			<a href="/category?name=web" class="navbar-name">Web</a>
-			
-			<a href="/category?name=asd" class="navbar-name">ASD</a>
 			
 		</div>
 	</div>
@@ -101,7 +102,17 @@
 
 <p>Code sẽ là:</p>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span> <span class="c1">//chuỗi trông</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="code"><pre><span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span> <span class="c1">//chuỗi trông</span>
 <span class="kd">var</span> <span class="nx">nextButton</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'a.next[title="Next"]'</span><span class="p">);</span>
 
 <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// test 100 hình thôi</span>
@@ -110,8 +121,7 @@
 
 	<span class="nx">data</span> <span class="o">=</span> <span class="nx">data</span> <span class="o">+</span> <span class="nx">link</span> <span class="o">+</span> <span class="s2">"</span><span class="err">\</span><span class="s2">n"</span><span class="p">;</span> <span class="c1">// xuống dòng</span>
 	<span class="nx">nextButton</span><span class="p">.</span><span class="nx">click</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre></div></div>
+<span class="p">}</span></pre></td></tr></tbody></table></code></pre></figure>
 
 <p>Kết quả chạy thử :v</p>
 
@@ -121,7 +131,21 @@
 
 <p>Để khắc phục, ta cho chờ 1s rồi mới cho next button được click:</p>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span> <span class="c1">//chuỗi trông</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="code"><pre><span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span> <span class="c1">//chuỗi trông</span>
 <span class="kd">var</span> <span class="nx">nextButton</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'a.next[title="Next"]'</span><span class="p">);</span>
 
 <span class="kd">var</span> <span class="nx">soAnh</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -134,8 +158,7 @@
 
 	<span class="o">++</span><span class="nx">soAnh</span><span class="p">;</span>
 	<span class="k">if</span> <span class="p">(</span><span class="nx">soAnh</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">)</span> <span class="nx">clearInterval</span><span class="p">(</span><span class="nx">idItv</span><span class="p">);</span> <span class="c1">//thoat vong lap</span>
-<span class="p">},</span> <span class="mi">1000</span><span class="p">);</span> <span class="c1">//1s</span>
-</code></pre></div></div>
+<span class="p">},</span> <span class="mi">1000</span><span class="p">);</span> <span class="c1">//1s</span></pre></td></tr></tbody></table></code></pre></figure>
 
 <p>Kết quả lần này đã OK. Sau 100 link thì tốn mất 100s, tức là .. gần 2 phút.</p>
 
@@ -153,7 +176,18 @@
 
 <p>Dữ liệu ta đã lấy được như code trên được lưu lại theo quy tắc link+[xuống dòng]. Vậy các link sẽ được ngăn cách bởi dấu xuống dòng. Cho nên ta sẽ tách từng link ra:</p>
 
-<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$data_list</span> <span class="o">=</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="s2">"data.txt"</span><span class="p">);</span><span class="c1">//lay du lieu file data.txt
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="code"><pre><span class="nv">$data_list</span> <span class="o">=</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="s2">"data.txt"</span><span class="p">);</span><span class="c1">//lay du lieu file data.txt
 </span><span class="nv">$data_list</span> <span class="o">=</span> <span class="nb">preg_split</span><span class="p">(</span><span class="s2">"/[</span><span class="se">\r\n</span><span class="s2">]+/"</span><span class="p">,</span> <span class="nv">$data_list</span><span class="p">);</span> <span class="c1">//cắt ra thành mảng
 </span>
 <span class="nv">$length</span> <span class="o">=</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$data_list</span><span class="p">);</span>
@@ -163,12 +197,26 @@
 
 	<span class="nx">getPhotoData</span><span class="p">(</span><span class="nv">$photo_url</span><span class="p">,</span> <span class="nv">$i</span><span class="p">,</span> <span class="s2">"photo/"</span><span class="p">);</span>
 	<span class="c1">//download vào folder photo đã tạo sẵn kế bên
-</span><span class="p">}</span>
-</code></pre></div></div>
+</span><span class="p">}</span></pre></td></tr></tbody></table></code></pre></figure>
 
 <p>Hàm <code class="highlighter-rouge">getPhotoData</code>:</p>
 
-<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function</span> <span class="nf">getPhotoData</span><span class="p">(</span><span class="nv">$photo_url</span><span class="p">,</span> <span class="nv">$id</span><span class="p">,</span> <span class="nv">$path</span><span class="p">)</span> <span class="p">{</span>		
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="code"><pre><span class="k">function</span> <span class="nf">getPhotoData</span><span class="p">(</span><span class="nv">$photo_url</span><span class="p">,</span> <span class="nv">$id</span><span class="p">,</span> <span class="nv">$path</span><span class="p">)</span> <span class="p">{</span>		
 	<span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">(</span><span class="nv">$photo_url</span><span class="p">);</span>
 	<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">);</span>
 	<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_BINARYTRANSFER</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">);</span>
@@ -182,8 +230,7 @@
 	<span class="nb">fclose</span><span class="p">(</span><span class="nv">$file</span><span class="p">);</span>
 
 	<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></div>
+<span class="p">}</span></pre></td></tr></tbody></table></code></pre></figure>
 
 <p>Code này được lưu cạnh file <code class="highlighter-rouge">data.txt</code> và folder <code class="highlighter-rouge">photo</code></p>
 
@@ -195,6 +242,58 @@
 
 <p><img src="/images/getFBPhoto_11.jpg" alt="img" /></p>
 
+			</div>
+			<div class="post-related">
+				<h1>RELATED POSTS</h1>
+				<div class="post-row-list">
+					<div class="list">
+						
+
+
+	
+	
+		
+		
+		
+			<a href="/web/2018/06/29/getFbID.html" class="post">
+				<div class="post-img">
+					<img src="/images/getFBID_2.gif" alt="">
+				</div>
+				<div class="post-title">Lấy Facebook ID bằng javascript</div>
+			</a>
+		
+		
+		
+		
+	
+
+	
+	
+		
+		
+		
+	
+
+	
+	
+		
+		
+		
+		
+		
+	
+
+	
+	
+
+	
+	
+
+					</div>
+				</div>
+				<a onclick='relatePrev()' class='prev'>&#10094</a>
+				<a onclick='relateNext()' class='next'>&#10095</a>
+				
 			</div>
 		</div>
 		<div class="footer">
@@ -301,5 +400,30 @@ onclick="javascript:void $('html, body').animate({scrollTop: 0}, 500, 'swing')">
 	}
 </script>
 		<script src="/script/statusBar.js"></script>
+		<script>
+			const relatePost = document.querySelectorAll('.post-related a.post');
+			const length = relatePost.length;
+			let current = 0;
+			const postWidth = $(relatePost[0]).width();
+
+			function scrollToPost()
+			{
+				$('.post-row-list .list').css({
+					transform: 'translateX('+ (-current*postWidth) + 'px)'
+				});
+			}
+
+			function relatePrev()
+			{
+				if (current > 0) --current;
+				scrollToPost();
+			}
+
+			function relateNext()
+			{
+				if (current < length-1) ++current;
+				scrollToPost();
+			}
+		</script>
 	</body>
 </html>

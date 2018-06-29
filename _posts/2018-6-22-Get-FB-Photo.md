@@ -56,7 +56,7 @@ Lấy chính xác element, ta có thể selector là `a.next[title='Next']` đ�
 
 Code sẽ là:
 
-```js
+{% highlight javascript linenos %}
 var data = ""; //chuỗi trông
 var nextButton = document.querySelector('a.next[title="Next"]');
 
@@ -67,7 +67,7 @@ for (let i = 0; i < 100; ++i) { // test 100 hình thôi
 	data = data + link + "\n"; // xuống dòng
 	nextButton.click();
 }
-```
+{% endhighlight %}
 
 Kết quả chạy thử :v
 
@@ -77,7 +77,7 @@ Ta có thể thấy có nhiều link bị trùng lại. Đó là do code chạy 
 
 Để khắc phục, ta cho chờ 1s rồi mới cho next button được click:
 
-```js
+{% highlight javascript linenos %}
 var data = ""; //chuỗi trông
 var nextButton = document.querySelector('a.next[title="Next"]');
 
@@ -92,7 +92,7 @@ let idItv = setInterval(function() {
 	++soAnh;
 	if (soAnh > 100) clearInterval(idItv); //thoat vong lap
 }, 1000); //1s
-```
+{% endhighlight %}
 
 Kết quả lần này đã OK. Sau 100 link thì tốn mất 100s, tức là .. gần 2 phút.
 
@@ -110,7 +110,7 @@ Tiếp theo, ta sẽ download hết các ảnh từ 100 link ảnh trên bằng 
 
 Dữ liệu ta đã lấy được như code trên được lưu lại theo quy tắc link+[xuống dòng]. Vậy các link sẽ được ngăn cách bởi dấu xuống dòng. Cho nên ta sẽ tách từng link ra:
 
-```php
+{% highlight php linenos %}
 $data_list = file_get_contents("data.txt");//lay du lieu file data.txt
 $data_list = preg_split("/[\r\n]+/", $data_list); //cắt ra thành mảng
 
@@ -122,11 +122,11 @@ for ($i = 0; $i < $length; ++$i) {
 	getPhotoData($photo_url, $i, "photo/");
 	//download vào folder photo đã tạo sẵn kế bên
 }
-```
+{% endhighlight %}
 
 Hàm `getPhotoData`:
 
-```php
+{% highlight php linenos %}
 function getPhotoData($photo_url, $id, $path) {		
 	$ch = curl_init($photo_url);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
@@ -142,7 +142,7 @@ function getPhotoData($photo_url, $id, $path) {
 
 	curl_close($ch);
 }
-```
+{% endhighlight %}
 
 Code này được lưu cạnh file `data.txt` và folder `photo`
 

@@ -33,6 +33,17 @@
 			<div class="post-content">
 				{{ page.content }}
 			</div>
+			<div class="post-related">
+				<h1>RELATED POSTS</h1>
+				<div class="post-row-list">
+					<div class="list">
+						{% include relate_post.html %}
+					</div>
+				</div>
+				<a onclick='relatePrev()' class='prev'>&#10094</a>
+				<a onclick='relateNext()' class='next'>&#10095</a>
+				
+			</div>
 		</div>
 		{% include footer.html %}
 		{% include go_head.html %}
@@ -41,5 +52,30 @@
 		<!-- script -->
 		{% include zoom_img_script.html %}
 		<script src="/script/statusBar.js"></script>
+		<script>
+			const relatePost = document.querySelectorAll('.post-related a.post');
+			const length = relatePost.length;
+			let current = 0;
+			const postWidth = $(relatePost[0]).width();
+
+			function scrollToPost()
+			{
+				$('.post-row-list .list').css({
+					transform: 'translateX('+ (-current*postWidth) + 'px)'
+				});
+			}
+
+			function relatePrev()
+			{
+				if (current > 0) --current;
+				scrollToPost();
+			}
+
+			function relateNext()
+			{
+				if (current < length-1) ++current;
+				scrollToPost();
+			}
+		</script>
 	</body>
 </html>
