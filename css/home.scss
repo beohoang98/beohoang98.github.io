@@ -17,8 +17,8 @@ body {
 .home {
 	&-header {
 		height: 300px;
-		background: var(--dark);
-		background: linear-gradient(to right, var(--dark), var(--grey), var(--dark));
+		background-color: var(--dark);
+		@include linearGradient(to right, var(--dark), var(--grey), var(--dark));
 
 		color: var(--text-light);
 
@@ -28,6 +28,7 @@ body {
 		text-align: center;
 		h1 {
 			font-size: 4rem;
+			font-family: 'Lora', serif;
 			margin: 0;
 		}
 		p {

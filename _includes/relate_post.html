@@ -6,11 +6,18 @@
 		{% for post in tag[1] %}
 		{% unless post.url == page.url or getted contains post.url %}
 		{% assign getted = getted | push: post.url %}
-			<a href="{{post.url}}" class="post">
-				<div class="post-img">
-					<img src="{{post.img}}" alt="">
-				</div>
-				<div class="post-title">{{post.title}}</div>
+			<a href="{{post.url}}">
+				<article class="post">
+					<div class="post-head">
+						<div class="post-img">
+							<img src="{{post.img}}" alt="">
+						</div>
+						<div class="post-title font-serif">{{post.title}}</div>
+					</div>
+					<div class="post-time" datetime="{{post.date}}">
+						{{ post.date | date_to_string }}
+					</div>
+				</article>
 			</a>
 		{% endunless %}
 		{% endfor %}

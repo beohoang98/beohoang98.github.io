@@ -12,10 +12,9 @@
 		<div class="home-header">
 			<div>
 				<h1 href="#">{{site.title}}</h1>
-				<p>Normal guy</p>
-				<p>Web Developer trong tương lai</p>
-				<p>Tò mò công nghệ</p>
-				<p>Thích sự đơn giản</p>
+				{% for des in site.description %}
+				<p>{{des}}</p>
+				{% endfor %}
 			</div>
 		</div>
 		{% include menu.html %}

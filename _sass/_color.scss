@@ -8,9 +8,22 @@
 	--text-fade: #888;
 }
 
-@import url('https://fonts.googleapis.com/css?family=Cabin');
+@import url('https://fonts.googleapis.com/css?family=Cabin|Lora');
 @import url('https://fonts.googleapis.com/css?family=Fira+Mono');
 
 code {
 	font-family: 'Fira Mono', consolas, monospace;
+}
+.font-serif {
+	font-family: 'Lora', serif;
+}
+.font-sans {
+	font-family: 'Cabin', sans-serif;
+}
+
+@mixin linearGradient($thing...) {
+	background-image: -moz-linear-gradient($thing);
+	background-image: -o-linear-gradient($thing);
+	background-image: -webkit-linear-gradient($thing);
+	background-image: linear-gradient($thing);
 }

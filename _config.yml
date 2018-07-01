@@ -1,7 +1,6 @@
 title: Noob Coder
-description: Nothing
+description: [Normal Guy, Love programming]
 repository: beohoang98/beohoang98.github.io
-category_list: [Web, C/C++]
 baseurl: ""
 
 fb_name: beo.hoang395
@@ -17,4 +16,3 @@ highlighter: rouge
 markdown: kramdown
 plugins:
   - jekyll-feed
-  - jekyll-paginate
