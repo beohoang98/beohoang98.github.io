@@ -1,0 +1,21 @@
+---
+permanlink: /page/blog
+
+---
+
+<div class="container">
+    <h2 class="primary">BLOG</h2>
+
+    <div class="d-flex flex-row flex-wrap">
+        {% for post in site.posts %}
+        <a class="d-block shadow" href="{{post.url}}">
+            <div class="card m-4" style="width: 300px">
+                <div class="card-header">
+                    <img class="card-img" src="{{post.img}}" alt="">
+                </div>
+                <div class="card-body">{{post.title}}</div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</div>

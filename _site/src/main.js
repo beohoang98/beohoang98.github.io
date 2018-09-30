@@ -1,30 +1,31 @@
-const Router = require("./router");
+const Router = require('./router');
+const Page = require('./Component/Page');
+
 const router = new Router();
+const page = new Page('');
 
-router.map("/home", (req, res) => {
-    console.log(req);
-    res.render("home.html", {
-        id: req.params.id,
-        name: req.search.name
-    });
+const PAGE_LIST = ['home', 'about', 'blog'];
+
+router.map('/:pagename', async (req, res) => {
+    const { params: { pagename } } = req;
+    console.log(pagename);
+    if (PAGE_LIST.includes(pagename)) {
+        page.rerender(pagename);
+        res.end();
+    }
 });
 
-router.map("/about", (req, res) => {
-    res.render("about.html");
+router.map('/.*', (req, res) => {
+    res.render('404.html', req);
+    res.end();
 });
 
-router.map("/.*", (req, res) => {
-    res.render("real404.html", {
-        url: req.url
-    });
-});
-
-(function() {
-    $(document).ready(function() {
+(function afterLoad() {
+    $(document).ready(() => {
+        $('body').html('').append(page.render());
         router.ready();
     });
-
-    $(window).on("popstate", function(event) {
+    window.addEventListener('popstate', () => {
         router.ready();
     });
-})(jQuery);
+}(jQuery));

@@ -6,24 +6,25 @@ class RouterRes {
     render(page, data) {
         this.isEnd = true;
 
-        fetch("/page/" + page)
-        .then(res=>res.text())
-        .then(text=>{
-            data = data || [];
+        fetch(`/page/${page}`)
+        .then(res => res.text())
+        .then((text) => {
+            const varData = data || [];
+            let textRendered = text;
 
-            for (const key of Object.keys(data)) {
-                text = text.replace("{{" + key + "}}", data[key]);
+            for (const key of Object.keys(varData)) {
+                textRendered = textRendered.replace(`{{${key}}}`, varData[key]);
             }
 
-            return text;
-        }).then(text=>{
-            $("body").html(text);
+            return textRendered;
+        }).then((text) => {
+            $('body').html(text);
         });
     }
 
     end() {
         this.isEnd = true;
-    } 
+    }
 }
 
 module.exports = RouterRes;

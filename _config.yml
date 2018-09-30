@@ -1,27 +1,6 @@
-browserify:
-
-  # target exts to convert
-  exts: [".js"]
-  
-  # use installed 'browserify'
-  command: "browserify -"
-  
-  # execute `npm install` on initialize if true
-  npm_install: false
-  
-  # set nvm properties if you want to use with nvm installed automatically
-  nvm:
-    
-    # required modules
-    modules: []
-    
-    # browserify option string
-    option: ""
-    
-    # node version if you specify, or use '.nvmrc' if 'null'
-    node_version: null
-
-markdown: kramdown
+sass:
+  sass_dir: _sass
+  style: compressed
 
 plugins:
   - github-pages
