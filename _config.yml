@@ -1,18 +1,28 @@
-title: Noob Coder
-description: [Normal Guy, Love programming]
-repository: beohoang98/beohoang98.github.io
-baseurl: ""
+browserify:
 
-fb_name: beo.hoang395
-github_name: beohoang98
-linkedin_name: an-hoang98
-
-sass:
-  sass_dir: _sass
-  style: compressed
-
-highlighter: rouge
+  # target exts to convert
+  exts: [".js"]
+  
+  # use installed 'browserify'
+  command: "browserify -"
+  
+  # execute `npm install` on initialize if true
+  npm_install: false
+  
+  # set nvm properties if you want to use with nvm installed automatically
+  nvm:
+    
+    # required modules
+    modules: []
+    
+    # browserify option string
+    option: ""
+    
+    # node version if you specify, or use '.nvmrc' if 'null'
+    node_version: null
 
 markdown: kramdown
+
 plugins:
-  - jekyll-feed
+  - github-pages
+  - jekyll-browserify
