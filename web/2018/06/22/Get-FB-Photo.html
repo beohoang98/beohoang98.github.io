@@ -1,0 +1,436 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>beohoang98.github.io | Tôi đã download ảnh crush trên facebook như thế nào?</title>
+		<link rel="stylesheet" href="/css/monokai.css">
+		<link rel="stylesheet" href="/css/post.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+		<script src="/static/jquery/jquery-3.3.1.min.js"></script>
+	</head>
+	<body>
+		<div class="navbar">
+	<div class="navbar-el">
+		<a href="/" class="navbar-name">HOME</a>
+	</div>
+	<div class="navbar-logo">
+		<i class="fab fa-github"></i>
+	</div>
+	<div class="navbar-el">
+		<a class="navbar-name">CATEGORIES</a>
+		<div class="navbar-sub">
+			
+			<a href="/category?name=web" class="navbar-name">Web</a>
+			
+		</div>
+	</div>
+</div>
+		<div class="post-header">
+			<div>
+				<div class="post-title font-serif">Tôi đã download ảnh crush trên facebook như thế nào?</div>
+				<div class="post-date">22 Jun 2018</div>
+				<div class="post-author">BeoHoang</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="post-headimg">
+				<img src="/images/getFBPhoto.png" alt="header">
+			</div>
+			<div class="post-tag">
+				<div>Tags: </div>
+				<ul>
+					
+					<li><a href="/tag?name=javascript">javascript</a></li>
+					
+					<li><a href="/tag?name=php">php</a></li>
+					
+					<li><a href="/tag?name=inspect">inspect</a></li>
+					
+				</ul>
+			</div>
+			<div class="post-content">
+				<h2 id="lấy-link-ảnh-từ-trang-profile-bằng-javascript">LẤY LINK ẢNH TỪ TRANG PROFILE BẰNG JAVASCRIPT</h2>
+
+<p>Ý tưởng của tui sẽ là vào trang profile photo facebook của <strong><em>crush</em></strong> và lấy link của những ảnh đó.</p>
+
+<blockquote>
+  <p><strong>Tại sao lại chỉ lấy link mà không down hình luôn?</strong></p>
+</blockquote>
+
+<p>Bởi vì nếu down bằng tay thì down sẽ không được nhiều + tốn công click chuột</p>
+
+<p><img src="/images/getFBPhoto_1.jpg" alt="anh_cua_crush" /></p>
+
+<p>Có tận 500 mấy hình lận :V</p>
+
+<p>Do đó, tui sẽ viết 1 đoạn Javascript để auto lấy tất cả các link (thực ra thì không đến tất cả - lâu lắm). Rồi lưu thành 1 chuỗi data, sau đó download về thành file text.</p>
+
+<p>Để tìm vị trí của link của hình mà độ phân giải cao, tui bấm vào 1 bức hình, rồi dùng Inspect của Chrome để tìm element</p>
+
+<p><img src="/images/getFBPhoto_2.jpg" alt="tim_element" /></p>
+
+<p><img src="/images/getFBPhoto_3.jpg" alt="tim_ra_element" /></p>
+
+<p>Ta thấy, bức hình là element có tag name là <code class="highlighter-rouge">img</code>, class là <code class="highlighter-rouge">spotlight</code>, để chắc hơn, tui lấy luôn class của parent là <code class="highlighter-rouge">stage</code>.</p>
+
+<p>Code javascript như sau:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">img</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'.stage img.spotlight'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">link</span> <span class="o">=</span> <span class="nx">img</span><span class="p">.</span><span class="nx">src</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><img src="/images/getFBPhoto_5.jpg" alt="tim_ra_code2" /></p>
+
+<p>Nhưng như vậy ta chỉ lấy được có 1 hình thôi do popup spotlight chỉ hiển thị 1 hình. Để có thể có hình tiếp theo ta phải bấm mũi tên để chuyển ảnh. Như vậy, ta cứ chuyển ảnh rồi chạy code thì hơi mệt.</p>
+
+<p>Nhưng không sao, ta vẫn có thể tự chuyển ảnh bằng code thôi, chỉ cần tìm ra element của nút mũi tên chuyển ảnh rồi trigger click đến element đó.</p>
+
+<p>Ta tìm được element đó là:</p>
+
+<p><img src="/images/getFBPhoto_6.jpg" alt="next_element" /></p>
+
+<p>Lấy chính xác element, ta có thể selector là <code class="highlighter-rouge">a.next[title='Next']</code> để tìm tất cả link element có class <code class="highlighter-rouge">next</code> và title=”Next”. Rồi gọi hàm click() để gọi event bấm lên nút đó.</p>
+
+<p><strong>Vậy ta có vòng lặp sau</strong>:</p>
+<ol>
+  <li>Lấy link ảnh</li>
+  <li>Bấm Next</li>
+  <li>Lưu lại link vào data</li>
+  <li>Quy lại 1</li>
+</ol>
+
+<p>Code sẽ là:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="code"><pre><span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span> <span class="c1">//chuỗi trông</span>
+<span class="kd">var</span> <span class="nx">nextButton</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'a.next[title="Next"]'</span><span class="p">);</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// test 100 hình thôi</span>
+	<span class="kd">let</span> <span class="nx">img</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'.stage img.spotlight'</span><span class="p">);</span>
+	<span class="kd">let</span> <span class="nx">link</span> <span class="o">=</span> <span class="nx">img</span><span class="p">.</span><span class="nx">src</span><span class="p">;</span>
+
+	<span class="nx">data</span> <span class="o">=</span> <span class="nx">data</span> <span class="o">+</span> <span class="nx">link</span> <span class="o">+</span> <span class="s2">"</span><span class="err">\</span><span class="s2">n"</span><span class="p">;</span> <span class="c1">// xuống dòng</span>
+	<span class="nx">nextButton</span><span class="p">.</span><span class="nx">click</span><span class="p">();</span>
+<span class="p">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Kết quả chạy thử :v</p>
+
+<p><img src="/images/getFBPhoto_7.jpg" alt="chay_thu" /></p>
+
+<p>Ta có thể thấy có nhiều link bị trùng lại. Đó là do code chạy quá nhanh, click được triggered quá nhanh nhưng ảnh mới chưa load xong, do đó có nhiều link trùng lại.</p>
+
+<p>Để khắc phục, ta cho chờ 1s rồi mới cho next button được click:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="code"><pre><span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span> <span class="c1">//chuỗi trông</span>
+<span class="kd">var</span> <span class="nx">nextButton</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'a.next[title="Next"]'</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">soAnh</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">idItv</span> <span class="o">=</span> <span class="nx">setInterval</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+	<span class="kd">let</span> <span class="nx">img</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'.stage img.spotlight'</span><span class="p">);</span>
+	<span class="kd">let</span> <span class="nx">link</span> <span class="o">=</span> <span class="nx">img</span><span class="p">.</span><span class="nx">src</span><span class="p">;</span>
+
+	<span class="nx">data</span> <span class="o">=</span> <span class="nx">data</span> <span class="o">+</span> <span class="nx">link</span> <span class="o">+</span> <span class="s2">"</span><span class="err">\</span><span class="s2">n"</span><span class="p">;</span> <span class="c1">// xuống dòng</span>
+	<span class="nx">nextButton</span><span class="p">.</span><span class="nx">click</span><span class="p">();</span>
+
+	<span class="o">++</span><span class="nx">soAnh</span><span class="p">;</span>
+	<span class="k">if</span> <span class="p">(</span><span class="nx">soAnh</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">)</span> <span class="nx">clearInterval</span><span class="p">(</span><span class="nx">idItv</span><span class="p">);</span> <span class="c1">//thoat vong lap</span>
+<span class="p">},</span> <span class="mi">1000</span><span class="p">);</span> <span class="c1">//1s</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Kết quả lần này đã OK. Sau 100 link thì tốn mất 100s, tức là .. gần 2 phút.</p>
+
+<p><img src="/images/getFBPhoto_8.jpg" alt="chay_thu_ok" />;</p>
+
+<p>Nhấn Copy, sau đó lưu dữ liệu lại thành file text</p>
+
+<p><img src="/images/getFBPhoto_9.jpg" alt="chay_thu_ok" />;</p>
+
+<p>Như vậy, ta đã có 100 link ảnh của <strong>crush</strong></p>
+
+<h2 id="download-ảnh-từ-danh-sách-link-bằng-php">DOWNLOAD ẢNH TỪ DANH SÁCH LINK BẰNG PHP</h2>
+
+<p>Tiếp theo, ta sẽ download hết các ảnh từ 100 link ảnh trên bằng chương trình php.</p>
+
+<p>Dữ liệu ta đã lấy được như code trên được lưu lại theo quy tắc link+[xuống dòng]. Vậy các link sẽ được ngăn cách bởi dấu xuống dòng. Cho nên ta sẽ tách từng link ra:</p>
+
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="code"><pre><span class="nv">$data_list</span> <span class="o">=</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="s2">"data.txt"</span><span class="p">);</span><span class="c1">//lay du lieu file data.txt
+</span><span class="nv">$data_list</span> <span class="o">=</span> <span class="nb">preg_split</span><span class="p">(</span><span class="s2">"/[</span><span class="se">\r\n</span><span class="s2">]+/"</span><span class="p">,</span> <span class="nv">$data_list</span><span class="p">);</span> <span class="c1">//cắt ra thành mảng
+</span>
+<span class="nv">$length</span> <span class="o">=</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$data_list</span><span class="p">);</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">&lt;</span> <span class="nv">$length</span><span class="p">;</span> <span class="o">++</span><span class="nv">$i</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nv">$photo_url</span> <span class="o">=</span> <span class="nb">trim</span><span class="p">(</span><span class="nv">$data_list</span><span class="p">[</span><span class="nv">$i</span><span class="p">]);</span>
+
+	<span class="nx">getPhotoData</span><span class="p">(</span><span class="nv">$photo_url</span><span class="p">,</span> <span class="nv">$i</span><span class="p">,</span> <span class="s2">"photo/"</span><span class="p">);</span>
+	<span class="c1">//download vào folder photo đã tạo sẵn kế bên
+</span><span class="p">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Hàm <code class="highlighter-rouge">getPhotoData</code>:</p>
+
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="code"><pre><span class="k">function</span> <span class="nf">getPhotoData</span><span class="p">(</span><span class="nv">$photo_url</span><span class="p">,</span> <span class="nv">$id</span><span class="p">,</span> <span class="nv">$path</span><span class="p">)</span> <span class="p">{</span>		
+	<span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">(</span><span class="nv">$photo_url</span><span class="p">);</span>
+	<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">);</span>
+	<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_BINARYTRANSFER</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">);</span>
+	<span class="c1">//sử dụng cURL để lấy ảnh từ link ảnh
+</span>
+	<span class="nv">$img_data</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+
+	<span class="c1">//save file về với tên file là số thứ tự
+</span>	<span class="nv">$file</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="s2">"./</span><span class="nv">$path</span><span class="s2">/</span><span class="nv">$id</span><span class="s2">.jpg"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">);</span>
+	<span class="nb">fwrite</span><span class="p">(</span><span class="nv">$file</span><span class="p">,</span> <span class="nv">$img_data</span><span class="p">);</span>
+	<span class="nb">fclose</span><span class="p">(</span><span class="nv">$file</span><span class="p">);</span>
+
+	<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+<span class="p">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Code này được lưu cạnh file <code class="highlighter-rouge">data.txt</code> và folder <code class="highlighter-rouge">photo</code></p>
+
+<p>Sau đó chạy chương trình php bằng command line:</p>
+
+<p><img src="/images/getFBPhoto_10.jpg" alt="img" /></p>
+
+<h1 id="kết-quả">Kết quả:</h1>
+
+<p><img src="/images/getFBPhoto_11.jpg" alt="img" /></p>
+
+			</div>
+			<div class="post-related">
+				<h1>RELATED POSTS</h1>
+				<div class="post-row-list">
+					<div class="list">
+						
+
+
+	
+	
+		
+		
+		
+			<a href="/web/2018/06/29/getFbID.html">
+				<article class="post">
+					<div class="post-head">
+						<div class="post-img">
+							<img src="/images/getFBID_2.gif" alt="">
+						</div>
+						<div class="post-title font-serif">Lấy Facebook ID bằng javascript</div>
+					</div>
+					<div class="post-time" datetime="2018-06-29 00:00:00 +0700">
+						29 Jun 2018
+					</div>
+				</article>
+			</a>
+		
+		
+		
+		
+	
+
+	
+	
+		
+		
+		
+	
+
+	
+	
+		
+		
+		
+		
+		
+	
+
+	
+	
+
+	
+	
+
+					</div>
+				</div>
+				<a onclick='relatePrev()' class='prev'>&#10094</a>
+				<a onclick='relateNext()' class='next'>&#10095</a>
+				
+			</div>
+		</div>
+		<div class="footer">
+<div>
+	<ul class='social'>
+		<li>
+			<a target="_blank" title="Github" href="//www.github.com/">
+				<i class="fab fa-github"></i>
+			</a>
+		</li>
+		<li>
+			<a target="_blank" title="Linkedin" href="//www.linkedin.com/in/">
+				<i class="fab fa-linkedin"></i>
+			</a>
+		</li>
+		<li>
+			<a target="_blank" title="Facebook Profile" href="//www.facebook.com/">
+				<i class="fab fa-facebook"></i>
+			</a>
+		</li>
+	</ul>
+	<div>
+		<a href="/myCV" target="_blank">MY RESUME</a>
+	</div>
+	<div>
+		<p>Generated by Jekyll on Github Pages <span class="fab fa-github"></span></p>
+		<p>I'm so lazy to design colors <span class="fas fa-meh"></span> ! Greyscale is simple</p>
+	</div>
+</div>
+</div>
+		<div title='Lên đầu trang' style="
+position: fixed;
+right: 30px;
+bottom: 50px;
+border-radius: 50%;
+background: var(--dark);
+color: var(--text-light);
+font-size: 30px;
+font-weight: bold;
+width: 30px;
+height: 30px;
+line-height: 30px;
+text-align: center;
+border: 2px solid var(--light);
+cursor: pointer;
+opacity: 0.6;
+"
+onclick="javascript:void $('html, body').animate({scrollTop: 0}, 500, 'swing')">^</div>
+		<div id="status-bar" data-element=".post-content" style="
+	width: 100%;
+	position: sticky;
+	position: -webkit-sticky;
+	bottom: 0;
+	height: 5px;
+	background-color: var(--light);
+	overflow: hidden;
+"><div style="background-color: var(--dark); height: 100%"></div></div>
+
+		<!-- script -->
+		<script>
+	const imgList = document.querySelectorAll('.post-content img');
+
+	const imgPopup = document.createElement("div");
+	const closeButton = document.createElement("button");
+	const imgWrap = document.createElement('div');
+	const imgNeedPopup = document.createElement('img');
+	imgWrap.appendChild(imgNeedPopup);
+	imgPopup.appendChild(closeButton);
+	imgPopup.appendChild(imgWrap);
+	document.body.appendChild(imgPopup);
+
+	imgPopup.className = 'img-popup';
+	imgWrap.className = 'img-popup-img';
+	closeButton.className = 'img-popup-close';
+	closeButton.textContent = "X";
+	closeButton.addEventListener('click', ()=>{
+		closeImgPopup();
+	});
+	imgNeedPopup.src='#';
+
+	if (imgList.length) {
+		imgList.forEach(img=>{
+			img.addEventListener('click',function(e){
+				imgNeedPopup.src = this.src;
+				openImgPopup();
+			});
+		});
+	}
+
+	document.addEventListener('keydown', (e)=>{
+		if (e.keyCode == 27) {
+			closeImgPopup();
+		}
+	});
+
+	function openImgPopup() {
+		imgPopup.classList.add('show');
+		
+	}
+
+	function closeImgPopup() {
+		if (imgPopup.classList.contains('show'))
+			imgPopup.classList.remove('show');
+	}
+</script>
+		<script src="/script/statusBar.js"></script>
+		<script>
+			const relatePost = document.querySelectorAll('.post-related a.post');
+			const length = relatePost.length;
+			let current = 0;
+			const postWidth = $(relatePost[0]).width();
+
+			function scrollToPost()
+			{
+				$('.post-row-list .list').css({
+					transform: 'translateX('+ (-current*postWidth) + 'px)'
+				});
+			}
+
+			function relatePrev()
+			{
+				if (current > 0) --current;
+				scrollToPost();
+			}
+
+			function relateNext()
+			{
+				if (current < length-1) ++current;
+				scrollToPost();
+			}
+		</script>
+	</body>
+</html>
