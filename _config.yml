@@ -4,4 +4,3 @@ sass:
 
 plugins:
   - github-pages
-  - jekyll-browserify

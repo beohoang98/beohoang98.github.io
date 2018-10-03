@@ -1,20 +1,21 @@
 ---
-permanlink: /page/blog
-
+permanlink: /page/blog/
 ---
 
 <div class="container">
     <h2 class="primary">BLOG</h2>
-
     <div class="d-flex flex-row flex-wrap">
         {% for post in site.posts %}
-        <a class="d-block shadow" href="{{post.url}}">
-            <div class="card m-4" style="width: 300px">
-                <div class="card-header">
-                    <img class="card-img" src="{{post.img}}" alt="">
-                </div>
+        <a class="d-block post-link" href="{{ post.url | replace: '/page/blog/', '/see-blog/'}}">
+            <article class="card m-4 shadow" style="width: 300px">
+                <img class="card-img" src="{{post.img}}" alt="">
                 <div class="card-body">{{post.title}}</div>
-            </div>
+                <div class="card-footer">
+                    {% for cat in post.categories %}
+                    {{cat | first}}
+                    {% endfor %}
+                </div>
+            </article>
         </a>
         {% endfor %}
     </div>
