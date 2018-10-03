@@ -22,7 +22,7 @@ const Page = require('./Component/Page');
     });
 
     router.map('/see-blog/:postName', (req, res) => {
-        page.rerender(`/blog/${req.params.postName}`);
+        page.rerender(`blog/${req.params.postName}`);
         res.end();
     });
 
