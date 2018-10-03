@@ -1,0 +1,5 @@
+languages:
+- javascript
+component_depth: 3
+exclude:
+- _site/*

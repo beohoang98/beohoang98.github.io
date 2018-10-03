@@ -1,10 +1,11 @@
 ---
-layout: post
+layout: plain
 title: Tôi đã download ảnh crush trên facebook như thế nào?
 categories: Web
 tags: javascript php inspect
 author: BeoHoang
 img: /images/getFBPhoto.png
+permalink: /blog/get-fb-photo/
 ---
 
 ## LẤY LINK ẢNH TỪ TRANG PROFILE BẰNG JAVASCRIPT
