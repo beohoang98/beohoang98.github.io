@@ -1,0 +1,27 @@
+---
+---
+
+@media screen and (max-width: 768px)
+    .site
+        flex-direction: column
+        flex-wrap: wrap
+
+        &-sidebar
+            position: -webkit-sticky
+            position: sticky
+            top: 0
+            z-index: 1000
+            transition: 0.3s
+            display: table
+            table-layout: fixed
+            width: 100%
+
+            &.onscrolldown
+                transform: translateY(-100%)
+
+            .nav-item
+                display: table-cell
+
+        &-content
+            max-width: 100%
+            max-height: unset

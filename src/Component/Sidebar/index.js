@@ -9,10 +9,10 @@ class Sidebar extends Component {
         .attr('id', 'site-menu');
 
         this.menu = {
-            homePage: new NavItem('HOME'),
-            aboutPage: new NavItem('ABOUT'),
-            blogPage: new NavItem('BLOG'),
-            changeTheme: new NavItem('CHANGE THEME'),
+            homePage: new NavItem('HOME', 'fas fa-home'),
+            aboutPage: new NavItem('ABOUT', 'fas fa-info-circle'),
+            blogPage: new NavItem('BLOG', 'fas fa-pen'),
+            changeTheme: new NavItem('CHANGE THEME', 'fas fa-cog'),
         };
 
         for (const navName of Object.keys(this.menu)) {

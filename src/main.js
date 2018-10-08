@@ -2,7 +2,7 @@ const Router = require('./router');
 const Page = require('./Component/Page');
 
 
-(function afterLoad() {
+(function afterLoad($) {
     const router = new Router();
     const page = new Page('');
 
@@ -32,6 +32,20 @@ const Page = require('./Component/Page');
     });
 
     $(document).ready(() => {
+
+        let oldScroll = 0;
+
+        $(window).on('scroll', (event) => {
+            const newScroll = +$(document).scrollTop();
+            if (newScroll > oldScroll) {
+                $('.site-sidebar').addClass('onscrolldown');
+            } else {
+                $('.site-sidebar').removeClass('onscrolldown');
+            }
+
+            oldScroll = newScroll;
+        });
+
         $('body').html('').append(page.render());
         router.ready();
     });

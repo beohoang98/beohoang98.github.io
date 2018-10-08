@@ -18,17 +18,21 @@
 
         .nav-link
             color: var(--text-default)
-            background-color: var(--bg-secondary)
-            transition: 0.2s
             padding: 2em
+
+            &.active, &:active
+                background-color: var(--primary)
+                color: var(--bg-default)
+
+        .nav-item
+            color: var(--text-default)
+            background-color: var(--bg-secondary)
+            transition: 0.5s
 
             &:hover
                 color: var(--primary)
                 background-color: var(--bg-default)
                 filter: brightness(0.7)
-            &.active, &:active
-                background-color: var(--primary)
-                color: var(--bg-default)
 
 
     &-content
