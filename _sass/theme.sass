@@ -1,9 +1,10 @@
 \:root
-    --bg-secondary: #888
+    --bg-secondary: #ccc
     --bg-default: #fff
-    --text-secondary: #ccc
+    --text-secondary: #444
     --text-default: #000
     --primary: #33f
+    --tile-bg: url(/static/images/tile_light.jpg)
 
 .theme-dark
     --primary: #ff4500
@@ -11,7 +12,28 @@
     --bg-secondary: #000
     --text-default: #ccc
     --text-secondary: #999
+    --tile-bg: url(/static/images/tile_dark.png)
 
     // override
     .bg-default
         background: var(--bg-default)
+
+.tile-bg
+    // background-image: var(--tile-bg)
+    // background-size: 150px 150px
+
+.card
+    border: none
+    background-color: inherit
+
+    &-header
+        background-color: var(--bg-secondary)
+        color: var(--primary)
+    &-body
+        background-color: var(--bg-default)
+        color: var(--text-default)
+    &-footer
+        background-color: var(--bg-default)
+        color: var(--text-default)
+
+@import "_fluent"

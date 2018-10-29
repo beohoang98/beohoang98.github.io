@@ -1,38 +1,23 @@
+---
+---
 <div class="container">
-    <div class="row">
-        <div class="col-md-4">
-            <div class="card shadow-lg">
-                <div class="card-header bg-default">
-                    <img class="card-img" src="" alt="">
-                    <h2>Hoang Dan An</h2>
-                </div>
-                <div class="card-body">
-                    <p>1998</p>
-                </div>
+    <div class="d-flex flex-row flex-wrap">
+        {% for info in site.infos %}
+        <div class="card rounded shadow-lg" style='min-width: 200px; margin: 1em'>
+            <div class="card-header">
+                <h2 class="card-title">{{info.name}}</h2>
+            </div>
+            <div class="card-body acrylic">
+            <table class='table'>
+            {% for field in info.field %}
+            <tr>
+                <td><strong>{{field | first}}</strong></td>
+                <td>{{field | last}}</td>
+            </tr>
+            {% endfor %}
+            </table>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="card shadow-lg">
-                <div class="card-header bg-default">
-                    <h2>Skills</h2>
-                </div>
-                <div class="card-body">
-                    <p>HTML/CSS</p>
-                    <p>Medium Javascript</p>
-                    <p>C/C++</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card shadow-lg">
-                <div class="card-header bg-default">
-                    <h2>Language</h2>
-                </div>
-                <div class="card-body">
-                    <p>Vietnamese</p>
-                    <p>Medium English (only good at reading)</p>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 </div>

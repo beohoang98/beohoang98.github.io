@@ -4,3 +4,43 @@ sass:
 
 plugins:
   - github-pages
+
+base_url: /
+infos:
+  - name: "Basic info"
+    field:
+      name: "Hoang Dan An"
+      birth: "1998"
+      school: "HCMUS Vietnam"
+      github: "https://github.com/beohoang98"
+  - name: "Skills"
+    field:
+      "HTML/CSS": "Medium"
+      "Javascript": "Medium"
+      "C/C++": "Basics"
+      "PHP": "Basics"
+      "Coffee Mix": "Drinkable"
+  - name: "Framework & Library & Tools"
+    field:
+      "jQuery & Bootstrap 4": "So basics"
+      "React, Angular": "Just can write 'Hello World'"
+      "Laravel": "Hello world too"
+      "NodeJS & MongoDB & ExpressJS": "Familiar"
+      "Bash, Shell & Linux": "In learning"
+      "Travis, CircleCI": "Knows some basics of CI things"
+  - name: "Languages"
+    field:
+      English: "Can read & understand english docs"
+      Vietname: "Native languages"
+  - name: "Hobby"
+    field:
+      Soccer: "usually play at CDM"
+      VideoGame: "usually play as Support role"
+      Guitar: "Just remember some major chord"
+      Drawing: "I like drawing girls =))"
+  - name: "My Favorite Blogger"
+    field:
+      "Toi di code dao": "<a href='https://toidicodedao.com' target='_blank'>toidicodedao.com</a>"
+      "Codeaholicguy": "<a href='https://codeaholicguy.com/' target='_blank'>codeaholicguy.com</a>"
+      "The Full Snack": "<a href='https://thefullsnack.com/' target='_blank'>thefullsnack.com</a>"
+      "Quần Cam": "<a href='https://quan-cam.com/' target='_blank'>quan-cam.com</a>"

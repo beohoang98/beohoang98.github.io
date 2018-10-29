@@ -10,7 +10,7 @@ class Page extends Component {
 
         this.setting = new Setting();
         this.setting.load();
-        this.element.addClass(this.setting.theme);
+        this.element.addClass(this.setting.theme + ' tile-bg');
 
         this.sideBar = new SideBar();
         this.content = new Content();

@@ -7,6 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch:js": "watchify src/main.js -d --outfile=static/bundle.js -v",
     "watch:jekyll": "bundle exec jekyll serve --host=0.0.0.0",
+    "build:js": "browserify src/main.js | uglifyjs -o static/bundle.js",
+    "build:jekyll": "bundle exec jekyll build",
+    "build": "npm run build:js && npm run build:jekyll",
     "start": "npm run watch:js & npm run watch:jekyll"
   },
   "repository": {
@@ -27,6 +30,7 @@
     "eslint-plugin-import": "^2.14.0",
     "gh-pages": "^2.0.0",
     "sass": "^1.14.1",
+    "uglify-es": "^3.3.9",
     "watchify": "^3.11.0"
   }
 }

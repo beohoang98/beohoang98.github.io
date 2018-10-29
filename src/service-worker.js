@@ -33,13 +33,7 @@ self.addEventListener('fetch', function(event) {
             return response;
           }
   
-          // IMPORTANT: Clone the request. A request is a stream and
-          // can only be consumed once. Since we are consuming this
-          // once by cache and once by the browser for fetch, we need
-          // to clone the response.
-          var fetchRequest = event.request.clone();
-  
-          return fetch(fetchRequest).then(
+          return fetch(event.request).then(
             function(response) {
               // Check if we received a valid response
               if(!response || response.status !== 200 || response.type !== 'basic') {
