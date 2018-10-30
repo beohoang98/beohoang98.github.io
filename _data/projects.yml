@@ -1,0 +1,18 @@
+- name: "Crawl instagram photos by Puppeteer"
+  des: "Crawling instagram photos by username & download it to computer, using Puppeteer & NodeJS"
+  stack:
+    - javascript
+    - nodejs
+  link:
+    title: "Github Repos"
+    url: "https://github.com/beohoang98/NodeJS_CrawlInstagramPhotos"
+- name: "Facebook Profiles Collection"
+  des: "My collections of Facebooker Profile, nice girls & famous people ..."
+  stack:
+    - php
+    - javascript
+    - sass
+    - npm
+  link:
+    title: "Github Repos"
+    url: "https://github.com/beohoang98/php-facebook-profile-collections"

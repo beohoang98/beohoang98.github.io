@@ -12,8 +12,7 @@ class Setting {
     }
 
     set theme(theme) {
-        if (theme !== 'theme-dark') this.data.theme = '';
-        else this.data.theme = theme;
+        this.data.theme = theme;
     }
 }
 

@@ -2,6 +2,7 @@ const Component = require('../Component.js');
 const SideBar = require('../Sidebar');
 const Content = require('../Content');
 const Setting = require('../../Setting');
+const Theme = require('../Theme.js');
 
 class Page extends Component {
     constructor() {
@@ -10,7 +11,7 @@ class Page extends Component {
 
         this.setting = new Setting();
         this.setting.load();
-        this.element.addClass(this.setting.theme + ' tile-bg');
+        this.element.addClass(this.setting.theme);
 
         this.sideBar = new SideBar();
         this.content = new Content();
@@ -24,12 +25,14 @@ class Page extends Component {
     handleMenu() {
         this.sideBar.menu.changeTheme.onClick((e) => {
             e.preventDefault();
-            this.element.toggleClass('theme-dark');
-            if (this.setting.theme !== 'theme-dark') {
-                this.setting.theme = 'theme-dark';
-            } else {
-                this.setting.theme = '';
-            }
+            this.element.removeClass(this.setting.theme);
+
+            let id = Theme.indexOf(this.setting.theme);
+            id = (id === Theme.length - 1) ? 0 : id + 1;
+
+            this.setting.theme = Theme[id];
+
+            this.element.addClass(this.setting.theme);
             this.setting.save();
         });
 
@@ -51,7 +54,9 @@ class Page extends Component {
 
     switchPage(pageName) {
         window.history.pushState('', '', `/${pageName}`);
+        this.content.element.removeClass('fadeIn');
         this.rerender(pageName);
+        this.content.element.addClass('fadeIn');
     }
 
     async rerender(pageName) {

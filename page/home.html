@@ -1,7 +1,29 @@
 ---
 permanlink: /page/home
 ---
-
+<header class="header">
+    <h1>HOME</h1>
+</header>
 <div class="container">
-    <h1>HELLO WORLD</h1>
+    <h2>MY PROJECTS</h2>
+    <div class="d-flex justify-content-around flex-wrap">
+    {% for project in site.data.projects %}
+    <div class="card shadow-lg rounded m-2" style="width: 300px">
+        <header class="card-header">
+            <h3 class='card-title'>{{project.name}}</h3>
+        </header>
+        <div class="card-body card-fluent">
+            <p>{{project.des}}</p>
+            <p>
+                {% for stack in project.stack %}
+                <span class="badge badge-info">{{stack}}</span>
+                {% endfor %}
+            </p>
+        </div>
+        <div class="card-footer card-fluent">
+            <a href="{{project.link.url}}" class="link" target="_blank"><i class="fab fa-github"></i> {{project.link.title}}</a>
+        </div>
+    </div>
+    {% endfor %}
+    </div>
 </div>

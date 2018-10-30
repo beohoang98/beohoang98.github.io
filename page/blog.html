@@ -11,13 +11,13 @@ permanlink: /page/blog/
         {% for post in site.posts %}
         <article class="card m-4 shadow-lg" style="width: 300px">
             <img class="card-img" src="{{post.img}}" alt="">
-            <div class="card-body acrylic">
+            <div class="card-body card-fluent">
                 <a href="{{ post.url | replace: '/page/blog/', '/see-blog/'}}" class="link">{{post.title}}</a>
             </div>
-            <div class="card-footer acrylic">
+            <div class="card-footer card-fluent">
                 {% for cat in post.tags %}
                 <a href="/blog/?tags={{cat}}">
-                    <span class="badge badge-secondary">{{cat}}</span>
+                    <span class="badge badge-info">{{cat}}</span>
                 </a>
                 {% endfor %}
             </div>
