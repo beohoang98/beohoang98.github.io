@@ -6,6 +6,7 @@ tags: javascript php inspect
 author: BeoHoang
 img: /images/getFBPhoto.png
 permalink: /page/blog/get-fb-photo/
+published: true
 ---
 
 ## LẤY LINK ẢNH TỪ TRANG PROFILE BẰNG JAVASCRIPT
@@ -152,5 +153,6 @@ Sau đó chạy chương trình php bằng command line:
 ![img](/images/getFBPhoto_10.jpg)
 
 # Kết quả:
+
 
 ![img](/images/getFBPhoto_11.jpg)
