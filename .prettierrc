@@ -1,0 +1,12 @@
+{
+    "arrowParens": "always",
+    "bracketSpacing": true,
+    "endOfLine": "lf",
+    "semi": true,
+    "useTabs": false,
+    "trailingComma": "es5",
+    "vueIndentScriptAndStyle": true,
+    "tabWidth": 4,
+    "singleQuote": false,
+    "jsxBracketSameLine": true
+}

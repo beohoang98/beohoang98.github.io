@@ -1,0 +1,28 @@
+@import "const";
+
+ul.app-social-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    flex-flow: row wrap;
+    margin: 1em auto;
+
+    max-width: 2rem;
+    justify-content: center;
+    transition: $animation-time;
+
+    .page- & {
+        max-width: 300px;
+        justify-content: space-around;
+    }
+
+    li {
+        font-size: 1.5rem;
+        margin: 0.5rem 0;
+
+        a {
+            text-decoration: none;
+        }
+    }
+}

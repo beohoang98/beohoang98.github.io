@@ -1,0 +1,50 @@
+@import "const";
+
+.app {
+    &-nav {
+        transition: 200ms;
+
+        @media screen and (max-width: $mobile-breakpoint) {
+            width: 100%;
+            overflow: auto;
+        }
+
+        &-menu {
+            display: flex;
+            flex-direction: column;
+            list-style: none;
+            font-size: 12px;
+
+            @media screen and (max-width: $mobile-breakpoint) {
+                flex-direction: row;
+                width: max-content;
+            }
+
+            &-item {
+                display: flex;
+                align-items: center;
+
+                @media screen and (max-width: $mobile-breakpoint) {
+                    flex-direction: column;
+                    font-size: 0.75em;
+                }
+
+                text-decoration: none;
+                padding: 1rem;
+                transition: $animation-time $animation-cubic-ease;
+
+                i.fa {
+                    display: inline-block;
+                    font-size: 2em;
+                    padding: 1rem;
+                }
+
+                &.active {
+                    font-size: 1.75em;
+                    color: $primary-color;
+                    text-shadow: 0 2px 4px #0003;
+                }
+            }
+        }
+    }
+}

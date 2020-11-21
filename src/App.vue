@@ -1,30 +1,44 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view />
+    <div :class="'app page-' + pathName">
+        <Navigation />
+        <div class="app-body">
+            <div class="app-header">
+                <router-link to="/">
+                    <img
+                        :src="socials.github + '.png?size=320'"
+                        alt=""
+                        width="320"
+                    />
+                </router-link>
+                <Socials />
+            </div>
+
+            <transition name="fade">
+                <router-view class="app-content" />
+            </transition>
+        </div>
+    </div>
 </template>
+<script lang="ts">
+    import { useRoute } from "vue-router";
+    import { computed } from "vue";
+    import Navigation from "@/components/Navigation.vue";
+    import Socials from "@/components/Socials.vue";
+    import { profile, socials } from "@/data";
+
+    export default {
+        components: { Socials, Navigation },
+        setup() {
+            const route = useRoute();
+            const pathName = computed(() =>
+                route.path.replace(/[\\/]/gi, "").toLowerCase()
+            );
+
+            return { pathName, profile, socials };
+        },
+    };
+</script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
+    @import "assets/common.scss";
 </style>

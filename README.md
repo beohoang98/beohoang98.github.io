@@ -1,24 +1,14 @@
-# beohoang98.github.io
+# Portfolio website
 
-## Project setup
-```
-yarn install
-```
+## Why do I use Vue for just a portfolio?
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+To try my design ideas about transitions, which has good support in Vue.
 
-### Compiles and minifies for production
-```
-yarn build
-```
+## Is it bad for sharing in Social Network and bad for me?
 
-### Lints and fixes files
-```
-yarn lint
-```
+Yes, but I will try it with meta tags.
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Huge Inspired from
+
+[https://css-tricks.com/native-like-animations-for-page-transitions-on-the-web/](https://css-tricks.com/native-like-animations-for-page-transitions-on-the-web/)
+

@@ -1,0 +1,80 @@
+@import "const";
+@import "animation";
+
+body {
+    margin: 0;
+    background-color: $dark-color;
+    color: $text-on-dark-color;
+    font-family: "Be Vietnam", "Fira Sans", "Roboto", sans-serif;
+    width: 100vw;
+    height: 100vh;
+}
+
+.app {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: $animation-time;
+
+    @media screen and (max-width: $mobile-breakpoint) {
+        flex-direction: column-reverse;
+    }
+
+    &-header {
+        position: absolute;
+        top: 1em;
+        right: 1em;
+        transform: translate(0, 0);
+        transition: $animation-time;
+
+        img {
+            width: 50px;
+            transition: width height $animation-time;
+        }
+    }
+
+    &-body {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+        overflow: auto;
+        transition: 200ms;
+        max-height: 100%;
+    }
+
+    &-content {
+        flex: 1 1 auto;
+        overflow: auto;
+    }
+
+    &.page- {
+        .app-header {
+            top: 50%;
+            right: 50%;
+            transform: translate(100%, -50%);
+            img {
+                width: 200px;
+            }
+        }
+        .app-body {
+            width: 200px;
+            flex: 0 0 auto;
+        }
+    }
+}
+
+a {
+    color: $text-on-dark-color;
+    &:hover {
+        color: $primary-color;
+    }
+    &:active {
+        color: $secondary-color;
+    }
+}
+
+@import "background_color";
