@@ -30,7 +30,7 @@
         icon?: string;
     }
 
-    export const menu: IMenuItem[] = [
+    const menu: IMenuItem[] = [
         {
             name: "About me",
             path: "/about",

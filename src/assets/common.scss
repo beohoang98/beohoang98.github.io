@@ -8,6 +8,7 @@ body {
     font-family: "Be Vietnam", "Fira Sans", "Roboto", sans-serif;
     width: 100vw;
     height: 100vh;
+    font-weight: 300;
 }
 
 .app {
@@ -32,7 +33,9 @@ body {
         transition: $animation-time;
 
         img {
+            border-radius: 45%;
             width: 50px;
+            box-shadow: 0 5px 10px #0003;
             transition: width height $animation-time;
         }
     }

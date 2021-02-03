@@ -11,6 +11,11 @@
             </a>
         </li>
         <li>
+            <a :href="socials.linkedin" title="Linkedin" target="_blank">
+                <i class="fab fa-linkedin"></i>
+            </a>
+        </li>
+        <li>
             <a :href="socials.instagram" title="Instagram" target="_blank">
                 <i class="fab fa-instagram"></i>
             </a>
@@ -20,7 +25,6 @@
 
 <script setup lang="ts">
     import { socials } from "@/data";
-    export { socials };
 </script>
 
 <style lang="scss">

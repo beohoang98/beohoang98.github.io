@@ -71,7 +71,7 @@ export const skills: ISkill[] = [
     },
     {
         name: "English",
-        note: "Good at Reading.\nAre improving Listening and Speaking",
+        note: "Good at Reading.\nBe improving Listening and Speaking",
         value: "",
         faIcon: "fa fa-globe-asia",
     },

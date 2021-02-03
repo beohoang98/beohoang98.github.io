@@ -1,0 +1,108 @@
+.project {
+    &-info {
+        flex: 1 1 auto;
+        padding: 1em;
+    }
+
+    &-time {
+        flex: 0 0 auto;
+        width: 100px;
+        position: relative;
+        text-align: center;
+
+        svg {
+            position: absolute;
+            top: -50px;
+            left: 0;
+            width: 100%;
+            height: calc(100% + 50px);
+
+            path {
+                stroke: #fff3;
+                stroke-width: 2px;
+            }
+
+            circle {
+                fill: #fffc;
+            }
+        }
+
+        time {
+            display: flex;
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+
+            text-shadow: 2px 2px 2px var(--background-color),
+            2px -2px 2px var(--background-color),
+            -2px 2px 2px var(--background-color),
+            -2px -2px 2px var(--background-color);
+        }
+    }
+
+    &-item {
+        display: flex;
+        flex-direction: row;
+
+        margin: 50px 0;
+        font-size: 0.8rem;
+        opacity: 0.3;
+        transition: opacity 0.25s;
+
+        h1, h2, h3 {
+            margin: 0;
+        }
+
+        h2 {
+            display: inline-block;
+            margin-right: 1em;
+            text-decoration: underline;
+        }
+
+        &.visible {
+            opacity: 1;
+        }
+    }
+
+    &-kind {
+        display: inline-block;
+        padding: 0.5em 1em;
+        margin: 0;
+        font-size: 0.75em;
+        border-radius: 0.5em;
+        background: #ccc;
+        color: #111;
+
+        &.real-world {
+            background: #f80;
+        }
+
+        &.personal {
+            background: #3cc;
+        }
+    }
+
+    &-lang {
+        ul {
+            display: inline-block;
+            padding: 0;
+        }
+    }
+
+    &-lang-item {
+        list-style: none;
+        display: inline-block;
+        padding: 0.5em;
+        margin: 0 0.5em;
+        background: #444;
+        border-radius: 1em;
+        font-size: 0.75em;
+    }
+
+    &-team {
+        p {
+            display: inline-block;
+            margin-left: 1em;
+        }
+    }
+}
