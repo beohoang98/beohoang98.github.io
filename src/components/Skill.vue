@@ -1,5 +1,10 @@
 <template>
-    <div class="skill">
+    <div
+        class="skill"
+        @animationend="animationEnd"
+        @animationcancel="animationEnd"
+        @animationstart="animationStart"
+    >
         <svg class="skill-bg" viewBox="0 0 100 100">
             <path :d="randomGlob"></path>
         </svg>
@@ -14,15 +19,13 @@
             </div>
             <p class="skill-note">{{ skill.note }}</p>
         </div>
-        <div
-            :class="detailsClass"
-            v-if="skill.skills && skill.skills.length && showDetails"
-        >
+        <div :class="detailsClass" v-if="skill.skills && skill.skills.length">
             <div
                 class="skill-details-backdrop"
                 @click="showDetails = false"
             ></div>
             <app-skill
+                v-show="showDetails"
                 :skill="childSkill"
                 v-for="(childSkill, idx) in skill.skills"
                 :key="idx"
@@ -42,6 +45,7 @@
                 showDetails: false,
                 randomGlob: "",
                 interval: -1,
+                canClick: true,
             };
         },
         props: {
@@ -63,7 +67,7 @@
         },
         methods: {
             handleClick(ev: MouseEvent) {
-                this.showDetails = true;
+                if (this.canClick) this.showDetails = true;
             },
             handleKeydown(ev: KeyboardEvent) {
                 ev.stopPropagation();
@@ -94,12 +98,21 @@
                 path += "Z";
                 return path;
             },
+            animationStart() {
+                this.canClick = false;
+            },
+            animationEnd(ev: AnimationEvent) {
+                console.debug(ev.type);
+                this.canClick = true;
+            },
         },
         watch: {
             showDetails(value) {
                 if (value) {
+                    history.pushState(null, this.skill.name);
                     document.addEventListener("keydown", this.handleKeydown);
                 } else {
+                    history.back();
                     document.removeEventListener("keydown", this.handleKeydown);
                 }
             },

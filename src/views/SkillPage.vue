@@ -28,10 +28,12 @@
 <style lang="scss" scoped>
     .skill-page-content {
         text-align: center;
+        overflow: visible;
     }
     .skill-page-list {
         display: flex;
         flex-flow: row wrap;
         justify-content: center;
+        overflow: visible;
     }
 </style>

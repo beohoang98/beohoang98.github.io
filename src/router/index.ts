@@ -19,12 +19,16 @@ const routes: Array<RouteRecordRaw> = [
     {
         path: "/education",
         name: "Education",
-        component: Home,
+        component: () =>
+            import(
+                /* webpackChunkName: "education" */ "../views/Education.vue"
+            ),
     },
     {
         path: "/skills",
         name: "Skills",
-        component: () => import("@/views/SkillPage.vue"),
+        component: () =>
+            import(/* webpackChunkName: "skill" */ "@/views/SkillPage.vue"),
     },
     {
         path: "/projects",
