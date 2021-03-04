@@ -5,20 +5,58 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width,initial-scale=1.0" />
         <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
-        <title><%= htmlWebpackPlugin.options.title %></title>
+        <title>An Hoang</title>
         <meta name="description" content="Personal website of @beohoang98" />
         <meta name="og:description" content="Personal website of @beohoang98" />
-        
+        <meta name="author" content="An Hoang @beohoang98" />
+        <meta name="designer" content="An Hoang @beohoang98" />
+        <meta
+            name="keywords"
+            content="Software Engineer, Front-end, Back-end, Full-stack, beohoang98, An Hoang, Hoang Dan An"
+        />
+        <meta name="country" content="Vietnam" />
+        <meta name="city" content="Ho Chi Minh City" />
+        <meta name="language" content="english" />
+
+        <!-- SEO tags -->
         <meta
             name="og:image"
-            content="https://github.com/beohoang98.png?width=192"
+            content="https://github.com/beohoang98.png?size=320"
         />
         <meta name="og:title" content="An Hoang" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:creator" content="@BeoHoang3" />
+        <meta name="twitter:site" content="@BeoHoang3" />
+        <meta
+            name="twitter:image"
+            content="https://github.com/beohoang98.png?size=120"
+        />
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "SoftwareApplication",
+                "name": "An Hoang",
+                "operatingSystem": "Ubuntu 18.04",
+                "applicationCategory": "DeveloperApplication",
+                "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "itemReviewed": {
+                        "name": "GPA",
+                        "description": "Based on 5.0"
+                    },
+                    "ratingValue": "3.45",
+                    "ratingCount": "2021"
+                },
+                "offers": {
+                    "@type": "Offer",
+                    "price": "7000000",
+                    "priceCurrency": "VND"
+                }
+            }
+        </script>
+        <!-- END SEO TAGS -->
 
-        <meta name="twitter:card" content="player">
-        <meta name="twitter:creator" content="@BeoHoang3">
-        <meta name="twitter:site" content="@BeoHoang3">
-
+        <link rel="preconnect" href="/hcmus.jpg" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
             href="https://fonts.googleapis.com/css2?family=Be+Vietnam:wght@300&display=swap"
@@ -67,29 +105,6 @@
                 color: #aaa;
             }
         </style>
-        <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "SoftwareApplication",
-                "name": "An Hoang",
-                "operatingSystem": "Ubuntu 18.04",
-                "applicationCategory": "DeveloperApplication",
-                "aggregateRating": {
-                    "@type": "AggregateRating",
-                    "itemReviewed": {
-                        "name": "GPA",
-                        "description": "Based on 5.0"
-                    },
-                    "ratingValue": "3.45",
-                    "ratingCount": "2021"
-                },
-                "offers": {
-                    "@type": "Offer",
-                    "price": "7000000",
-                    "priceCurrency": "VND"
-                }
-            }
-        </script>
     </head>
     <body>
         <noscript>
@@ -98,6 +113,7 @@
                 work properly without JavaScript enabled. Please enable it to
                 continue.</strong
             >
+            <img src="<%= BASE_URL %>/favicon.ico" alt="" />
         </noscript>
         <div id="app">
             <div id="initial-loading">
