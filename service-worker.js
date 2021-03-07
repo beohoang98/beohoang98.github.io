@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.b9a05ae495f82fc045189d3001eeb3e1.js"
+  "/precache-manifest.54cef09bf7787e3ecb891c20ec49f595.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "beohoang98.github.io"});
