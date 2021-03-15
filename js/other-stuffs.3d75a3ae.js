@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["other-stuffs"],{d180:function(n,e,t){"use strict";t.r(e);var o=t("7a23"),c=Object(o["h"])("h1",null,"Coming soon",-1);function s(n,e){return Object(o["q"])(),Object(o["e"])("div",null,[c])}const u={};u.render=s;e["default"]=u}}]);
+//# sourceMappingURL=other-stuffs.3d75a3ae.js.map
