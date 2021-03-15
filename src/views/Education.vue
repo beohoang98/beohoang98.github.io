@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <h1>Education</h1>
+    <div typeof="SoftwareApplication">
+        <h1 propertty="name">Education</h1>
         <ul>
             <li>
                 <article title="Ho Chi Minh City University of Science">
@@ -17,8 +17,19 @@
                             >https://hcmus.edu.vn</a
                         >
                     </p>
-                    <p><strong>Major: </strong>Software Engineering</p>
-                    <p><strong>GPA: </strong>6.7/10</p>
+                    <p
+                        property="applicationCategory"
+                        content="DeveloperApplication"
+                    >
+                        <strong>Major: </strong>Software Engineering
+                    </p>
+                    <p property="aggregateRating" typeof="AggregateRating">
+                        <strong>GPA: </strong
+                        ><span property="ratingValue">6.7</span>/<span
+                            property="ratingCount"
+                            >10</span
+                        >
+                    </p>
                     <p>
                         <strong>From: </strong>
                         <time datetime="August 2016">08/2016</time>

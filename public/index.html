@@ -12,14 +12,16 @@
     <title>An Hoang</title>
     <meta name="description" content="Personal website of @beohoang98" />
     <meta property="og:description" content="Personal website of @beohoang98" />
+    <meta property="og:type" content="website" />
     <meta name="author" content="An Hoang @beohoang98" />
     <meta name="designer" content="An Hoang @beohoang98" />
     <meta name="keywords"
-        content="Software Engineer, Front-end, Back-end, Full-stack, beohoang98, An Hoang, Hoang Dan An, An, Hoang, software, application, web" />
+          content="Software Engineer, Front-end, Back-end, Full-stack, beohoang98, An Hoang, Hoang Dan An, An, Hoang, software, application, web" />
     <meta name="country" content="Vietnam" />
     <meta name="city" content="Ho Chi Minh City" />
     <meta name="language" content="english" />
     <meta name="robots" content="index,follow,noarchive">
+    <meta name="theme-color" content="#333333">
 
     <!-- SEO tags -->
     <meta property="og:image" content="https://github.com/beohoang98.png?size=320" />
@@ -57,6 +59,10 @@
     <!-- END SEO TAGS -->
 
     <style>
+        body {
+            margin: 0;
+        }
+
         #initial-loading {
             display: flex;
             flex-direction: column;
@@ -70,42 +76,44 @@
     </style>
     <link rel="preconnect" href="/hcmus.jpg" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam:wght@300&display=swap" rel="stylesheet" />
+    <link async href="https://fonts.googleapis.com/css2?family=Be+Vietnam:wght@300&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/fontawesome.min.css"
-        integrity="sha512-kJ30H6g4NGhWopgdseRb8wTsyllFUYIx3hiUwmGAkgA9B/JbzUBDQVr2VVlWGde6sdBVOG7oU8AL35ORDuMm8g=="
-        crossorigin="anonymous" />
+          integrity="sha512-kJ30H6g4NGhWopgdseRb8wTsyllFUYIx3hiUwmGAkgA9B/JbzUBDQVr2VVlWGde6sdBVOG7oU8AL35ORDuMm8g=="
+          crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/brands.min.css"
-        integrity="sha512-D0B6cFS+efdzUE/4wh5XF5599DtW7Q1bZOjAYGBfC0Lg9WjcrqPXZto020btDyrlDUrfYKsmzFvgf/9AB8J0Jw=="
-        crossorigin="anonymous" />
+          integrity="sha512-D0B6cFS+efdzUE/4wh5XF5599DtW7Q1bZOjAYGBfC0Lg9WjcrqPXZto020btDyrlDUrfYKsmzFvgf/9AB8J0Jw=="
+          crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/solid.min.css"
-        integrity="sha512-SazV6tF6Ko4GxhyIZpKoXiKYndqzh7+cqxl9HDH7DGSpjkCN3QLqTAlhJHJnKxu3/2rfCsltzwFC4CmxZE1hPg=="
-        crossorigin="anonymous" />
+          integrity="sha512-SazV6tF6Ko4GxhyIZpKoXiKYndqzh7+cqxl9HDH7DGSpjkCN3QLqTAlhJHJnKxu3/2rfCsltzwFC4CmxZE1hPg=="
+          crossorigin="anonymous" />
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-K14M36X2CW"></script>
     <script async>
         window.dataLayer = window.dataLayer || [];
+
         function gtag() {
             dataLayer.push(arguments);
         }
+
         gtag("js", new Date());
         gtag("config", "G-K14M36X2CW");
     </script>
 </head>
 
 <body>
-    <noscript>
-        <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't
-                work properly without JavaScript enabled. Please enable it to
-                continue.</strong>
+<noscript>
+    <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't
+        work properly without JavaScript enabled. Please enable it to
+        continue.</strong>
+    <img src="<%= BASE_URL %>/favicon.ico" alt="" />
+</noscript>
+<div id="app">
+    <div id="initial-loading">
         <img src="<%= BASE_URL %>/favicon.ico" alt="" />
-    </noscript>
-    <div id="app">
-        <div id="initial-loading">
-            <img src="<%= BASE_URL %>/favicon.ico" alt="" />
-            <h2>Loading...</h2>
-        </div>
+        <h2>Loading...</h2>
     </div>
-    <!-- built files will be auto injected -->
+</div>
+<!-- built files will be auto injected -->
 </body>
 
 </html>

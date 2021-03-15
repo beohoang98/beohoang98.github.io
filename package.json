@@ -1,42 +1,41 @@
 {
-  "name": "beohoang98.github.io",
-  "homepage": "https://beohoang98.github.io/",
-  "version": "0.1.0",
-  "private": true,
-  "author": {
-    "name": "An Hoang",
-    "url": "https://github.com/beohoang98"
-  },
-  "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
-  },
-  "dependencies": {
-    "core-js": "^3.9.0",
-    "register-service-worker": "^1.7.2",
-    "vue": "^3.0.6",
-    "vue-router": "^4.0.4"
-  },
-  "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^4.15.2",
-    "@typescript-eslint/parser": "^4.15.2",
-    "@vue/cli-plugin-babel": "~4.5.11",
-    "@vue/cli-plugin-eslint": "~4.5.11",
-    "@vue/cli-plugin-pwa": "~4.5.11",
-    "@vue/cli-plugin-router": "~4.5.11",
-    "@vue/cli-plugin-typescript": "~4.5.11",
-    "@vue/cli-service": "~4.5.11",
-    "@vue/compiler-sfc": "^3.0.6",
-    "@vue/eslint-config-prettier": "^6.0.0",
-    "@vue/eslint-config-typescript": "^7.0.0",
-    "eslint": "^7.20.0",
-    "eslint-plugin-prettier": "^3.3.1",
-    "eslint-plugin-vue": "^7.6.0",
-    "gh-pages": "^3.1.0",
-    "node-sass": "^5.0.0",
-    "prettier": "^2.2.1",
-    "sass-loader": "^10.1.1",
-    "typescript": "^4.2.2"
-  }
+    "name": "beohoang98.github.io",
+    "homepage": "https://beohoang98.github.io/",
+    "version": "0.1.0",
+    "private": true,
+    "author": {
+        "name": "An Hoang",
+        "url": "https://github.com/beohoang98"
+    },
+    "scripts": {
+        "serve": "vue-cli-service serve",
+        "build": "vue-cli-service build",
+        "lint": "vue-cli-service lint"
+    },
+    "dependencies": {
+        "core-js": "^3.9.1",
+        "register-service-worker": "^1.7.2",
+        "vue": "^3.0.7",
+        "vue-router": "^4.0.5"
+    },
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^4.17.0",
+        "@typescript-eslint/parser": "^4.17.0",
+        "@vue/cli-plugin-babel": "~4.5.11",
+        "@vue/cli-plugin-eslint": "~4.5.11",
+        "@vue/cli-plugin-router": "~4.5.11",
+        "@vue/cli-plugin-typescript": "~4.5.11",
+        "@vue/cli-service": "~4.5.11",
+        "@vue/compiler-sfc": "^3.0.7",
+        "@vue/eslint-config-prettier": "^6.0.0",
+        "@vue/eslint-config-typescript": "^7.0.0",
+        "eslint": "^7.22.0",
+        "eslint-plugin-prettier": "^3.3.1",
+        "eslint-plugin-vue": "^7.7.0",
+        "gh-pages": "^3.1.0",
+        "node-sass": "^5.0.0",
+        "prettier": "^2.2.1",
+        "sass-loader": "^10.1.1",
+        "typescript": "^4.2.3"
+    }
 }

@@ -1,6 +1,10 @@
 @import "const";
 @import "animation";
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     background-color: $dark-color;
@@ -59,10 +63,18 @@ body {
             top: 50%;
             right: 50%;
             transform: translate(100%, -50%);
+            @media screen and (max-width: $mobile-breakpoint) {
+                position: relative;
+                transform: translate(0, 0);
+                top: unset;
+                right: unset;
+            }
+
             img {
                 width: 200px;
             }
         }
+
         .app-body {
             width: 200px;
             flex: 0 0 auto;
@@ -72,9 +84,11 @@ body {
 
 a {
     color: $text-on-dark-color;
+
     &:hover {
         color: $primary-color;
     }
+
     &:active {
         color: $secondary-color;
     }

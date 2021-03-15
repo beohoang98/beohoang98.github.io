@@ -6,7 +6,7 @@
         flex: 0 0 auto;
 
         @media screen and (max-width: $mobile-breakpoint) {
-            width: 100%;
+            width: 100vw;
             overflow: auto;
         }
 

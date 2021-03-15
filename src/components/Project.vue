@@ -93,10 +93,14 @@
         },
         mounted() {
             this.checkVisible();
-            window.addEventListener("wheel", this.watchVisibility);
+            document
+                .querySelector(".app-content")
+                ?.addEventListener("scroll", this.watchVisibility);
         },
         unmounted() {
-            window.removeEventListener("wheel", this.watchVisibility);
+            document
+                .querySelector(".app-content")
+                ?.removeEventListener("scroll", this.watchVisibility);
         },
     });
 </script>
