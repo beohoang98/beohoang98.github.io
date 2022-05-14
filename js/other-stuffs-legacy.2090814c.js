@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkbeohoang98_github_io"]=self["webpackChunkbeohoang98_github_io"]||[]).push([[910],{8603:function(n,u,o){o.r(u),o.d(u,{default:function(){return l}});var e=o(6252),i=(0,e._)("h1",null,"Coming soon",-1),r=[i];function t(n,u){return(0,e.wg)(),(0,e.iD)("div",null,r)}var a=o(3744);const h={},c=(0,a.Z)(h,[["render",t]]);var l=c}}]);
+//# sourceMappingURL=other-stuffs-legacy.2090814c.js.map
