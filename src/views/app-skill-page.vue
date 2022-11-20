@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts">
-    import AppSkill from "@/components/Skill.vue";
+    import AppSkill from "@/components/AppSkill.vue";
     import { skills } from "@/data";
 
     export default {

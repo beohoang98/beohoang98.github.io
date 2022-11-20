@@ -22,8 +22,8 @@
 <script lang="ts">
     import { useRoute } from "vue-router";
     import { computed } from "vue";
-    import Navigation from "@/components/Navigation.vue";
-    import Socials from "@/components/Socials.vue";
+    import Navigation from "@/components/AppNavigation.vue";
+    import Socials from "@/components/AppSocials.vue";
     import { profile, socials } from "@/data";
 
     export default {

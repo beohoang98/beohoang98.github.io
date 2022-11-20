@@ -52,13 +52,13 @@
             skill: { type: Object as PropType<ISkill>, required: true },
         },
         computed: {
-            detailsClass(): any {
+            detailsClass() {
                 return {
                     "skill-details": true,
                     show: this.showDetails,
                 };
             },
-            titleClass(): any {
+            titleClass() {
                 return {
                     "skill-title": true,
                     clickable: this.skill.skills && this.skill.skills.length,
@@ -66,7 +66,7 @@
             },
         },
         methods: {
-            handleClick(ev: MouseEvent) {
+            handleClick() {
                 if (this.canClick) this.showDetails = true;
             },
             handleKeydown(ev: KeyboardEvent) {

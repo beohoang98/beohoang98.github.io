@@ -53,8 +53,7 @@ export const skills: ISkill[] = [
                     {
                         name: "Databases",
                         value: 1,
-                        note:
-                            "In University, with basic knowledge.\nInclude MySQL, MSSQL, MongoDB",
+                        note: "In University, with basic knowledge.\nInclude MySQL, MSSQL, MongoDB",
                         unit: "years",
                         faIcon: "fa fa-database",
                     },

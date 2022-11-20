@@ -5,7 +5,7 @@ module.exports = {
         loaderOptions: {
             css: {
                 url: false,
-            }
-        }
-    }
+            },
+        },
+    },
 };

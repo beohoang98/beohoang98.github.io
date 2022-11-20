@@ -77,9 +77,8 @@
             checkVisible() {
                 const element = this.$refs.element as HTMLElement;
                 const { y, height } = element.getBoundingClientRect();
-                const {
-                    height: bodyHeight,
-                } = document.body.getBoundingClientRect();
+                const { height: bodyHeight } =
+                    document.body.getBoundingClientRect();
                 if (y > (bodyHeight * 2) / 3 || y + height < bodyHeight / 3) {
                     element.classList.remove("visible");
                 } else {
@@ -87,7 +86,7 @@
                 }
                 // console.debug(`[${this.project.name}] ${y} ${height}`);
             },
-            watchVisibility(ev: Event) {
+            watchVisibility() {
                 setTimeout(this.checkVisible, 200);
             },
         },

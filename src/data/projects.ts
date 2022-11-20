@@ -3,6 +3,7 @@ export type IProject =
           type: "custom";
           name: string;
           description: string;
+          url?: undefined;
       }
     | {
           type: "github";

@@ -11,7 +11,7 @@
 </template>
 
 <script lang="ts" setup>
-    import Project from "@/components/Project.vue";
+    import Project from "@/components/AppProject.vue";
     import { projects } from "@/data";
 </script>
 

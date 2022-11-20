@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
-import Home from "@/views/Home.vue";
+import Home from "@/views/app-home.vue";
 
 const routes: Array<RouteRecordRaw> = [
     {
@@ -14,33 +14,35 @@ const routes: Array<RouteRecordRaw> = [
         // this generates a separate chunk (about.[hash].js) for this route
         // which is lazy-loaded when the route is visited.
         component: () =>
-            import(/* webpackChunkName: "about" */ "../views/About.vue"),
+            import(/* webpackChunkName: "about" */ "../views/app-about.vue"),
     },
     {
         path: "/education",
         name: "Education",
         component: () =>
             import(
-                /* webpackChunkName: "education" */ "../views/Education.vue"
+                /* webpackChunkName: "education" */ "../views/app-education.vue"
             ),
     },
     {
         path: "/skills",
         name: "Skills",
         component: () =>
-            import(/* webpackChunkName: "skill" */ "@/views/SkillPage.vue"),
+            import(
+                /* webpackChunkName: "skill" */ "@/views/app-skill-page.vue"
+            ),
     },
     {
         path: "/projects",
         name: "Projects",
         component: () =>
-            import(/* webpackChunkName: "project" */ "@/views/Project.vue"),
+            import(/* webpackChunkName: "project" */ "@/views/app-project.vue"),
     },
     {
         path: "/other-stuffs",
         name: "Other Stuffs",
         component: import(
-            /* webpackChunkName: "other-stuffs" */ "@/views/Other.vue"
+            /* webpackChunkName: "other-stuffs" */ "@/views/app-other.vue"
         ),
     },
 ];
