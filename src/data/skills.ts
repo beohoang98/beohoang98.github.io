@@ -23,13 +23,13 @@ export const skills: ISkill[] = [
             },
             {
                 name: "Front-end Web Development",
-                value: 2,
+                value: 4,
                 unit: "years",
                 faIcon: "fa fa-desktop",
                 skills: [
                     {
                         name: "React.js",
-                        value: 2,
+                        value: 4,
                         unit: "projects",
                         note: "In university and works",
                         faIcon: "fab fa-react",
@@ -45,21 +45,21 @@ export const skills: ISkill[] = [
             },
             {
                 name: "Back-end Web Development",
-                value: 2,
+                value: 4,
                 unit: "years",
                 note: "In University",
                 faIcon: "fa fa-server",
                 skills: [
                     {
                         name: "Databases",
-                        value: 1,
+                        value: 2,
                         note: "In University, with basic knowledge.\nInclude MySQL, MSSQL, MongoDB",
                         unit: "years",
                         faIcon: "fa fa-database",
                     },
                     {
                         name: "Node.js",
-                        value: 3,
+                        value: 4,
                         unit: "years",
                         note: "In University, work's projects",
                         faIcon: "fab fa-node",
@@ -70,7 +70,7 @@ export const skills: ISkill[] = [
     },
     {
         name: "English",
-        note: "Good at Reading.\nBe improving Listening and Speaking",
+        note: "Good at Reading.\nStill be improving on Listening and Verbal communications.",
         value: "",
         faIcon: "fa fa-globe-asia",
     },

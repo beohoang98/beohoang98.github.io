@@ -23,6 +23,32 @@ export type IProjectDetail = IProject & {
 
 export const projects: Array<IProjectDetail> = [
     {
+        type: "custom",
+        kind: "real-world",
+        name: "Edspot",
+        description: "Education web platforms that help teacher, learner and providers finding each others.",
+        teamSize: 10,
+        time: "January 2023 - Now",
+        role: "DevOps Supporter",
+        languages: ["Terraform", "CSharp", "Angular", "Bash"],
+        knowledge: [
+            "Deployment on Azure cloud provider using App Services and their ecosystem.",
+            "Infrastructure and services monitoring - keep eyes on servers health and application issues.",
+            "Deploy and maintain multiple applications with different tech stack, that need to be consistent with each others."
+        ]
+    },
+    {
+        type: "custom",
+        kind: "real-world",
+        name: "VOD Scheduling & Metadata System (Web application)",
+        description: "Develop and maintain an internal application for Media Management Company, about scheduling films and its metadata like images, languages, ...",
+        time: "September 2021 - Now",
+        languages: ["React", "Typescript"],
+        knowledge: ["Micro-frontend & Micro-services", "Cloud with AWS", "Unit tests", "Data sync and data dependent problems between micro-services"],
+        role: "Frontend Engineer",
+        teamSize: 6,
+    },
+    {
         type: "github",
         url: "https://github.com/beohoang98/tree-visualizer",
         teamSize: 1,
