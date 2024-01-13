@@ -1,2 +1,0 @@
-"use strict";(self["webpackChunkbeohoang98_github_io"]=self["webpackChunkbeohoang98_github_io"]||[]).push([[910],[,function(n,o,u){u.r(o),u.d(o,{default:function(){return s}});var e=u(252);const t=(0,e._)("h1",null,"Coming soon",-1),i=[t];function r(n,o){return(0,e.wg)(),(0,e.iD)("div",null,i)}var a=u(744);const c={},h=(0,a.Z)(c,[["render",r]]);var s=h}]]);
-//# sourceMappingURL=other-stuffs.a380c472.js.map
