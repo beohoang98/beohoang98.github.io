@@ -1,133 +1,176 @@
 export type IProject =
-    | {
-          type: "custom";
-          name: string;
-          description: string;
-          url?: undefined;
-      }
-    | {
-          type: "github";
-          url: string;
-          name?: string;
-          description?: string;
-      };
+  | {
+      type: "custom";
+      name: string;
+      description: string;
+      url?: string;
+    }
+  | {
+      type: "github";
+      url: string;
+      name?: string;
+      description?: string;
+    };
 
 export type IProjectDetail = IProject & {
-    teamSize?: number;
-    knowledge?: string[];
-    languages?: string[];
-    role?: string;
-    time?: string;
-    kind: "personal" | "real-world" | "school";
+  teamSize?: number;
+  knowledge?: string[];
+  languages?: string[];
+  role?: string;
+  time?: string;
+  kind: "personal" | "real-world" | "school";
 };
 
 export const projects: Array<IProjectDetail> = [
-    {
-        type: "custom",
-        kind: "real-world",
-        name: "Edspot",
-        description: "Education web platforms that help teacher, learner and providers finding each others.",
-        teamSize: 10,
-        time: "January 2023 - Now",
-        role: "DevOps Supporter",
-        languages: ["Terraform", "CSharp", "Angular", "Bash"],
-        knowledge: [
-            "Deployment on Azure cloud provider using App Services and their ecosystem.",
-            "Infrastructure and services monitoring - keep eyes on servers health and application issues.",
-            "Deploy and maintain multiple applications with different tech stack, that need to be consistent with each others."
-        ]
-    },
-    {
-        type: "custom",
-        kind: "real-world",
-        name: "VOD Scheduling & Metadata System (Web application)",
-        description: "Develop and maintain an internal application for Media Management Company, about scheduling films and its metadata like images, languages, ...",
-        time: "September 2021 - Now",
-        languages: ["React", "Typescript"],
-        knowledge: ["Micro-frontend & Micro-services", "Cloud with AWS", "Unit tests", "Data sync and data dependent problems between micro-services"],
-        role: "Frontend Engineer",
-        teamSize: 6,
-    },
-    {
-        type: "github",
-        url: "https://github.com/beohoang98/tree-visualizer",
-        teamSize: 1,
-        time: "Jan 2021",
-        kind: "personal",
-        name: "Tree Visualizer",
-        description: "Visualize tree data structure like Binary Tree, etc",
-        languages: ["Vue", "Javascript"],
-        knowledge: ["Data structure", "Tree", "SVG"],
-    },
-    {
-        type: "github",
-        url: "https://github.com/beohoang98/typing-survival",
-        teamSize: 2,
-        role: "Programmer",
-        name: "Hero of Words (Game)",
-        languages: ["C#", "Unity"],
-        description: "School's project about Game Making with Unity",
-        knowledge: [
-            "CSharp of course",
-            "Basics about Unity",
-            "Some knowledge about graphic stuff like shader or post-processing",
-        ],
-        time: "Sep 2020 - Dec 2020",
-        kind: "school",
-    },
-    {
-        type: "github",
-        teamSize: 2,
-        languages: ["Node.js", "Typescript", "Vue"],
-        url: "https://github.com/beohoang98/internet-banking",
-        role: "Fullstack",
-        name: "Internet Banking",
-        description:
-            "School's project in Web Development course. To create an internet banking system which has backend and frontend in SPA",
-        knowledge: [
-            "Node.js and Typescript, framework is Nest.js (not Next.js)",
-            "Basic encryption in banking like PGP and SHA512 to safety communication with other bank system",
-            "Vue.js for making Single Page Application",
-        ],
-        time: "Jan 2020 - May 2020",
-        kind: "school",
-    },
-    {
-        type: "custom",
-        name: "Cloudjet Potential (shutdown)",
-        description:
-            "An Application Tracking System developed with serverless solutions (Firebase, Netlify). " +
-            "The project was shutdown in March 2020 but it's the first real project that I had participated",
-        role: "Junior Frontend Developer",
-        teamSize: 8,
-        languages: ["Vue.js", "Node.js", "Typescript"],
-        knowledge: [
-            "First time dealing with tons of complex things in real frontend application",
-            "Experienced with problems about teamwork and communication that is as important as coding",
-            "Experienced with a workflow in real project, like pull-request, testing phase, named version, deployment and distribution",
-            "Basics about Cloud platform as Google Cloud",
-            "Dealing with tons of pros/cons of Firebase, NoSQL. " +
-                "That are very ease and quick to use but they will be more complex with higher requirements",
-            "Disadvantages in SEO and performance with SPA, which are trade-off to archive fast and reusable coding",
-        ],
-        time: "March 2019 - Dec 2019",
-        kind: "real-world",
-    },
-    {
-        type: "github",
-        url: "https://github.com/beohoang98/ISE_NMH_16",
-        name: "Smart Money",
-        description:
-            "Android app for wallet management, final project in university for Software Technology subject",
-        teamSize: 4,
-        role: "Team Leader, also as coder",
-        knowledge: [
-            "Basic about Android",
-            "Basic about workflow for a software project",
-            "Basic about what we need to archive during development of a software project",
-        ],
-        time: "Oct 2018 - Jan 2019",
-        kind: "school",
-        languages: ["Android", "Java"],
-    },
+  {
+    type: "custom",
+    url: "https://t-learning.innovation.com.vn",
+    kind: "real-world",
+    name: "T-Learning",
+    description:
+      "Internal education platforms for TMA, support employees to sharing or improve their knowledges",
+    role: "FullStack Developer",
+    teamSize: 10,
+    time: "January 2024 - Now",
+    languages: ["CSharp", "React", "Angular", "Python", "Nodejs", "SQL"],
+    knowledge: [
+      "CI/CD with Gitlab",
+      "Manage and monitor application services using Docker & Docker Compose",
+      "Collaborate with Designer and Product team through Figma",
+      "Networkings and servers configuration with Linux and Nginx",
+    ],
+  },
+  {
+    type: "custom",
+    kind: "real-world",
+    name: "AMOP Device Management",
+    description:
+      "Maintain and develop an inventory application to manage networking devices like SIMs, routers, wireless devices, ... Working directly with business team members to clarify requirements.",
+    teamSize: 5,
+    time: "November 2023 - Now",
+    role: "FullStack Developer",
+    languages: ["CSharp", "React", "Terraform", "Nodejs", "Python", "SQL"],
+    knowledge: [
+      ".NET Frameworks and .NET Core",
+      "Amazon Web Services",
+      "Octopus Deploy & Jenkins & Gitlab for CI / CD",
+      "Lambda architecture for downstream processing",
+      "SQL Server",
+    ],
+  },
+  {
+    type: "custom",
+    kind: "real-world",
+    name: "Edspot",
+    description:
+      "Education web platforms that help teacher, learner and providers finding each others.",
+    teamSize: 10,
+    time: "January 2023 - January 2024",
+    role: "DevOps Supporter",
+    languages: ["Terraform", "CSharp", "Angular", "Bash"],
+    knowledge: [
+      "Deployment on Azure cloud provider using App Services and their ecosystem.",
+      "Infrastructure and services monitoring - keep eyes on servers health and application issues.",
+      "Deploy and maintain multiple applications with different tech stack, that need to be consistent with each others.",
+    ],
+  },
+  {
+    type: "custom",
+    kind: "real-world",
+    name: "VOD Scheduling & Metadata System (Web application)",
+    description:
+      "Develop and maintain an internal application for Media Management Company, about scheduling films and its metadata like images, languages, ...",
+    time: "September 2021 - Now",
+    languages: ["React", "Typescript"],
+    knowledge: [
+      "Micro-frontend & Micro-services",
+      "Cloud with AWS",
+      "Unit tests",
+      "Data sync and data dependent problems between micro-services",
+    ],
+    role: "Frontend Engineer",
+    teamSize: 6,
+  },
+  {
+    type: "github",
+    url: "https://github.com/beohoang98/tree-visualizer",
+    teamSize: 1,
+    time: "Jan 2021",
+    kind: "personal",
+    name: "Tree Visualizer",
+    description: "Visualize tree data structure like Binary Tree, etc",
+    languages: ["Vue", "Javascript"],
+    knowledge: ["Data structure", "Tree", "SVG"],
+  },
+  {
+    type: "github",
+    url: "https://github.com/beohoang98/typing-survival",
+    teamSize: 2,
+    role: "Programmer",
+    name: "Hero of Words (Game)",
+    languages: ["C#", "Unity"],
+    description: "School's project about Game Making with Unity",
+    knowledge: [
+      "CSharp of course",
+      "Basics about Unity",
+      "Some knowledge about graphic stuff like shader or post-processing",
+    ],
+    time: "Sep 2020 - Dec 2020",
+    kind: "school",
+  },
+  {
+    type: "github",
+    teamSize: 2,
+    languages: ["Node.js", "Typescript", "Vue"],
+    url: "https://github.com/beohoang98/internet-banking",
+    role: "Fullstack",
+    name: "Internet Banking",
+    description:
+      "School's project in Web Development course. To create an internet banking system which has backend and frontend in SPA",
+    knowledge: [
+      "Node.js and Typescript, framework is Nest.js (not Next.js)",
+      "Basic encryption in banking like PGP and SHA512 to safety communication with other bank system",
+      "Vue.js for making Single Page Application",
+    ],
+    time: "Jan 2020 - May 2020",
+    kind: "school",
+  },
+  {
+    type: "custom",
+    name: "Cloudjet Potential (shutdown)",
+    description:
+      "An Application Tracking System developed with serverless solutions (Firebase, Netlify). " +
+      "The project was shutdown in March 2020 but it's the first real project that I had participated",
+    role: "Junior Frontend Developer",
+    teamSize: 8,
+    languages: ["Vue.js", "Node.js", "Typescript"],
+    knowledge: [
+      "First time dealing with tons of complex things in real frontend application",
+      "Experienced with problems about teamwork and communication that is as important as coding",
+      "Experienced with a workflow in real project, like pull-request, testing phase, named version, deployment and distribution",
+      "Basics about Cloud platform as Google Cloud",
+      "Dealing with tons of pros/cons of Firebase, NoSQL. " +
+        "That are very ease and quick to use but they will be more complex with higher requirements",
+      "Disadvantages in SEO and performance with SPA, which are trade-off to archive fast and reusable coding",
+    ],
+    time: "March 2019 - Dec 2019",
+    kind: "real-world",
+  },
+  {
+    type: "github",
+    url: "https://github.com/beohoang98/ISE_NMH_16",
+    name: "Smart Money",
+    description:
+      "Android app for wallet management, final project in university for Software Technology subject",
+    teamSize: 4,
+    role: "Team Leader, also as coder",
+    knowledge: [
+      "Basic about Android",
+      "Basic about workflow for a software project",
+      "Basic about what we need to archive during development of a software project",
+    ],
+    time: "Oct 2018 - Jan 2019",
+    kind: "school",
+    languages: ["Android", "Java"],
+  },
 ];
